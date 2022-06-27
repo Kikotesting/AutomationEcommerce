@@ -2,6 +2,7 @@ package eCommerceSetup;
 import eCommercePages.HomePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -28,6 +29,11 @@ public class eCommerceSetup {
     void afterEach(){
         browser.manage().deleteAllCookies();
         browser.quit();
+    }
+
+    public void scrollEndPage(){
+        JavascriptExecutor js = (JavascriptExecutor) browser;
+        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
     }
 
 /*    HomePage objHomePage;
