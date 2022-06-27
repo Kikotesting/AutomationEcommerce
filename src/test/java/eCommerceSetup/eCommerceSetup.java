@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class eCommerceSetup {
 
-    WebDriver browser;
+    public WebDriver browser;
 
     // Manage web-driver browser version
     @BeforeAll
@@ -30,12 +30,12 @@ public class eCommerceSetup {
         browser.quit();
     }
 
-    HomePage objHomePage;
+/*    HomePage objHomePage;
 
     @Test
     @DisplayName("Check!")
     void verifyHomePage(){
         objHomePage = new HomePage(browser);
         objHomePage.veryBottomHeader();
-    }
+    }*/
 }
