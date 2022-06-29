@@ -1,20 +1,25 @@
-import KikoCustom.Highlighter;
 import eCommercePages.HomePage;
-import eCommerceSetup.eCommerceSetup;
+import eCommerceSetup.setupPage;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.JavascriptExecutor;
 
-public class Tests extends eCommerceSetup{
+public class TestsHomePage extends setupPage{
     HomePage objHomePage;
 
     @Test
-    @DisplayName("Check!")
-    void verifyHomePage(){
+    @Tag("Text")
+    void checkBottomHeadingsAndParagraph(){
+        // Create object from HomePage
         objHomePage = new HomePage(browser);
         scrollEndPage();
         objHomePage.veryBottomHeader();
         objHomePage.veryBottomHeaderTwo();
         objHomePage.veryBottomParagraph();
+    }
+
+    @Test
+    void checkFooterElements(){
+
     }
 }
