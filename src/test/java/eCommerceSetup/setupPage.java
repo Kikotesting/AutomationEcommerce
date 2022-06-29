@@ -8,19 +8,21 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 public class setupPage {
 
     public WebDriver browser;
 
     // Manage web-driver browser version
     @BeforeAll
-    static void beforeAllTest(){
+    static void beforeAllTest() {
         WebDriverManager.chromedriver().setup();
     }
 
     // initialize new browser for each test and navigate to main website
     @BeforeEach
-    void beforeEachTest(){
+    void beforeEachTest() {
         browser = new ChromeDriver();
         browser.manage().window().maximize();
         browser.navigate().to("http://automationpractice.com/");
@@ -28,22 +30,16 @@ public class setupPage {
 
     // Clear cookies and Kill the browser after finish the test
     @AfterEach
-    void afterEach(){
+    void afterEach() {
         browser.manage().deleteAllCookies();
         browser.quit();
     }
 
-    public void scrollEndPage(){
+    public void scrollEndPage() {
         JavascriptExecutor js = (JavascriptExecutor) browser;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
     }
-
-/*    HomePage objHomePage;
-
-    @Test
-    @DisplayName("Check!")
-    void verifyHomePage(){
-        objHomePage = new HomePage(browser);
-        objHomePage.veryBottomHeader();
-    }*/
+    public void setWaitTime(){
+        browser.manage().timeouts().pageLoadTimeout(2000, SECONDS);
+    }
 }

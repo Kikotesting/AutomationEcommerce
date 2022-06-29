@@ -16,7 +16,8 @@ public class HomePage {
         PageFactory.initElements(browser,this);
     }
 
-    // Editorial Module
+    ///////////////////////////////////////////////////////////
+    // EDITORIAL -  Module
     @FindBy (xpath = "//*[@id=\"editorial_block_center\"]/h1")
     WebElement bottomHeadingOneBottom;
     public void veryBottomHeader(){
@@ -31,21 +32,47 @@ public class HomePage {
         String  getHeadingTwoBottom = bottomHeadingTwoBottom.getText();
         Assertions.assertEquals("Practice Selenium", getHeadingTwoBottom);
     }
-    @FindBy (xpath = "//*[@id=\"editorial_block_center\"]/div/p/text()")
+    @FindBy (xpath = "//*[@id=\"editorial_block_center\"]/div/p")
     WebElement bottomParagraph;
     public void veryBottomParagraph(){
         Highlighter.highlightElement(browser, bottomParagraph);
         String  getBottomParagraph = bottomParagraph.getText();
         Assertions.assertEquals("This sample ecommerce website is being used by www.seleniumframework.com website to help pracitce exercises on a real-time ecommerce website. Different workflows for adding products to cart, checking out car, making payments etc. workflows will be automated using Automation scripts and this website is a candidate for the same. Please contact support@seleniumframework.com for any further questions. Thanks.", getBottomParagraph);
     }
+    ///////////////////////////////////////////////////////////
 
     // FOOTER - NewsLetter social module
     @FindBy (xpath = "//*[@id=\"newsletter_block_left\"]/h4")
-    WebElement footerNewsLetterHeadings;
-
-
+    WebElement footerNewsLetterHeading;
+    public void veryFooterNewsLetterHeading(){
+        Highlighter.highlightElement(browser, footerNewsLetterHeading);
+        String  getFooterNewsLetterHeading = footerNewsLetterHeading.getText();
+        Assertions.assertEquals("Newsletter", getFooterNewsLetterHeading);
+    }
+    @FindBy (id = "newsletter-input")
+    WebElement newsLetterInputBar;
+    public void clickNewsLetterInputBar(){
+        newsLetterInputBar.click();
+    }
+    public void typingInNewsLetterInputBar(){
+        Highlighter.highlightElement(browser,newsLetterInputBar);
+        newsLetterInputBar.sendKeys("kiko@mail.bg");
+    }
+    @FindBy (xpath = "//*[@id=\"newsletter_block_left\"]/div/form/div/button")
+    WebElement newsLetterSubmitButton;
+    public void pressNewsLetterSubmitButton(){
+        Highlighter.highlightElement(browser,newsLetterSubmitButton);
+        newsLetterSubmitButton.click();
+    }
     @FindBy (xpath = "//*[@id=\"social_block\"]/h4")
-    WebElement footerFollowUs;
+    WebElement footerFollowUsHeading;
+    public void veryFooterFollowUsHeading(){
+        Highlighter.highlightElement(browser, footerFollowUsHeading);
+        String  getFooterFollowUsHeading = footerFollowUsHeading.getText();
+        Assertions.assertEquals("Follow us", getFooterFollowUsHeading);
+    }
+
+
     @FindBy (linkText = "https://www.facebook.com/groups/525066904174158/")
     WebElement footerLinkFacebook;
     @FindBy (linkText = "https://twitter.com/seleniumfrmwrk")
