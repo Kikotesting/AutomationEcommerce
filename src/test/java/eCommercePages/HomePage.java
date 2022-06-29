@@ -56,13 +56,32 @@ public class HomePage {
     }
     public void typingInNewsLetterInputBar(){
         Highlighter.highlightElement(browser,newsLetterInputBar);
-        newsLetterInputBar.sendKeys("kiko@mail.bg");
+        newsLetterInputBar.sendKeys("kik2o3@mail.bg");
     }
     @FindBy (xpath = "//*[@id=\"newsletter_block_left\"]/div/form/div/button")
     WebElement newsLetterSubmitButton;
     public void pressNewsLetterSubmitButton(){
         Highlighter.highlightElement(browser,newsLetterSubmitButton);
         newsLetterSubmitButton.click();
+    }
+    @FindBy(xpath = "//*[@id=\"columns\"]/p")
+    WebElement subscribedMessage;
+    public void verifySubscribedMessage(){
+        Highlighter.highlightElement(browser,subscribedMessage);
+
+        String getActualSubscribedMessage = subscribedMessage.getText();
+
+        String companySubscribedMessage = "Newsletter : You have successfully subscribed to this newsletter.";
+        String companyRegisteredMessage = "Newsletter : This email address is already registered.";
+
+        if (getActualSubscribedMessage == companySubscribedMessage ){
+            System.out.println("First condition is true");
+            Assertions.assertEquals(companySubscribedMessage, getActualSubscribedMessage);
+        }else {
+            System.out.println("Second condition is true");
+            Assertions.assertEquals(companyRegisteredMessage, getActualSubscribedMessage);
+        }
+
     }
     @FindBy (xpath = "//*[@id=\"social_block\"]/h4")
     WebElement footerFollowUsHeading;

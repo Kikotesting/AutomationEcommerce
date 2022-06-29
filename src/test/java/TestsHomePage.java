@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 public class TestsHomePage extends setupPage{
     HomePage objHomePage;
 
-
     @Test
     @Tag("Text")
     void checkBottomHeadingsAndParagraph(){
@@ -18,8 +17,8 @@ public class TestsHomePage extends setupPage{
         objHomePage.veryBottomHeaderTwo();
         objHomePage.veryBottomParagraph();
     }
-
     @Test
+    @Tag("Footer elements")
     void checkFooterNewsLetter_SocialModule_TC1(){
         // Create object from HomePage
         objHomePage = new HomePage(browser);
@@ -28,8 +27,10 @@ public class TestsHomePage extends setupPage{
         objHomePage.clickNewsLetterInputBar();
         objHomePage.typingInNewsLetterInputBar();
         objHomePage.pressNewsLetterSubmitButton();
+        objHomePage.verifySubscribedMessage();
     }
     @Test
+    @Tag("Footer elements")
     void checkFooterNewsLetter_SocialModule_TC2(){
         // Create object from HomePage
         objHomePage = new HomePage(browser);
