@@ -15,8 +15,8 @@ public class HomePage {
         this.browser = browser;
         PageFactory.initElements(browser,this);
     }
-
     ///////////////////////////////////////////////////////////
+
     // EDITORIAL -  Module
     @FindBy (xpath = "//*[@id=\"editorial_block_center\"]/h1")
     WebElement bottomHeadingOneBottom;
@@ -41,6 +41,48 @@ public class HomePage {
     }
     ///////////////////////////////////////////////////////////
 
+    // Module block CMSinfo
+    @FindBy(xpath = "//*[@id=\"icon-truck\"]")
+    WebElement comeVisitUsIcon;
+    public void veryComeVisitUsIcon(){
+        Highlighter.highlightElement(browser, comeVisitUsIcon);
+        comeVisitUsIcon.isDisplayed();
+        System.out.println("Icon is visible");
+    }
+    @FindBy(xpath = "//*[@id=\"cmsinfo_block\"]/div[1]/ul/li[1]/div/h3")
+    WebElement ComeVisitUsHeading;
+    public void veryComeVisitUsHeading(){
+        Highlighter.highlightElement(browser, ComeVisitUsHeading);
+        String  getComeVisitUsHeading = ComeVisitUsHeading.getText();
+        Assertions.assertEquals("Come Visit Us", getComeVisitUsHeading);
+        System.out.println("Heading is correct and visible!");
+    }
+    @FindBy(xpath = "//*[@id=\"cmsinfo_block\"]/div[1]/ul/li[1]/div/p")
+    WebElement ComeVisitUsParagraph;
+    public void veryComeVisitUsParagraph(){
+        Highlighter.highlightElement(browser, ComeVisitUsParagraph);
+        String  getComeVisitUsParagraph = ComeVisitUsParagraph.getText();
+        Assertions.assertEquals("We are located in Research Triangle Park, North Carolina, USA", getComeVisitUsParagraph);
+        System.out.println("Paragraph is correct and visible!");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ///////////////////////////////////////////////////////////
     // FOOTER - NewsLetter social module
     @FindBy (xpath = "//*[@id=\"newsletter_block_left\"]/h4")
     WebElement footerNewsLetterHeading;
