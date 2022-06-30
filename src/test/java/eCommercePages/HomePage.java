@@ -6,11 +6,14 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 import java.util.ArrayList;
+
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class HomePage {
 
@@ -72,7 +75,34 @@ public class HomePage {
     }
     ///////////////////////////////////////////////////////////
 
-
+    // MainMENU - Pages
+    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[1]/a")
+    WebElement menuWomen;
+    public void navigateToMenuWomen(){
+        Actions actions = new Actions(browser);
+        browser.manage().timeouts().pageLoadTimeout(2000, SECONDS);
+        actions.moveToElement(menuWomen);
+        actions.perform();
+        browser.manage().timeouts().pageLoadTimeout(2000, SECONDS);
+    }
+    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[2]/a")
+    WebElement menuDresses;
+    public void navigateToMenuDresses(){
+        Actions actions = new Actions(browser);
+        browser.manage().timeouts().pageLoadTimeout(2000, SECONDS);
+        actions.moveToElement(menuDresses);
+        actions.perform();
+        browser.manage().timeouts().pageLoadTimeout(2000, SECONDS);
+    }
+    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[3]/a")
+    WebElement menuTShirts;
+    public void navigateToMenuTShirts(){
+        Actions actions = new Actions(browser);
+        browser.manage().timeouts().pageLoadTimeout(2000, SECONDS);
+        actions.moveToElement(menuTShirts);
+        actions.perform();
+        browser.manage().timeouts().pageLoadTimeout(2000, SECONDS);
+    }
 
 
 
@@ -141,7 +171,7 @@ public class HomePage {
 
     @FindBy (xpath = "//*[@id=\"social_block\"]/ul/li[1]/a")
     WebElement footerLinkFacebook;
-    public void linkFooterFaceebok() throws InterruptedException {
+    public void linkFooterFacebook() throws InterruptedException {
         footerLinkFacebook.isDisplayed();
         if (browser.getPageSource().contains("https://www.facebook.com/groups/525066904174158/")){
             // method Keys.chord

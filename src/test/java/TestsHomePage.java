@@ -1,3 +1,4 @@
+import KikoCustom.Highlighter;
 import eCommercePages.HomePage;
 import eCommerceSetup.setupPage;
 import org.junit.jupiter.api.DisplayName;
@@ -31,7 +32,7 @@ public class TestsHomePage extends setupPage{
 
     @Test
     @Tag("Footer elements")
-    @DisplayName("Block newsLetter module")
+    @DisplayName("NewsLetter module")
     void checkFooterNewsLetter_SocialModule_TC1(){
         // Create object from HomePage
         objHomePage = new HomePage(browser);
@@ -45,7 +46,7 @@ public class TestsHomePage extends setupPage{
 
     @Test
     @Tag("Footer elements")
-    @DisplayName("Block newsLetter module")
+    @DisplayName("NewsLetter module 2")
     void checkFooterNewsLetter_SocialModule_TC2(){
         // Create object from HomePage
         objHomePage = new HomePage(browser);
@@ -55,13 +56,27 @@ public class TestsHomePage extends setupPage{
 
     @Test
     @Tag("Footer elements")
-    @DisplayName("Block FollowUs module")
+    @DisplayName("FollowUs module")
     void checkFooterFollowUs_Module_TC3() throws InterruptedException {
         objHomePage = new HomePage(browser);
-        objHomePage.linkFooterFaceebok();
-
-/*        objHomePage.linkFooterTwitter();
+        objHomePage.linkFooterFacebook();
+        // Still in-progress
+      /*        objHomePage.linkFooterTwitter();
         objHomePage.linkFooterYouTube();*/
+    }
+
+    @Test
+    @Tag("Main Menu")
+    @DisplayName("Hover the MainMenu pages")
+    void checkMainMenuButtons(){
+        objHomePage = new HomePage(browser);
+        objHomePage.navigateToMenuWomen();
+        objHomePage.navigateToMenuDresses();
+        objHomePage.navigateToMenuWomen();
+        objHomePage.navigateToMenuTShirts();
+        objHomePage.navigateToMenuWomen();
+        objHomePage.navigateToMenuDresses();
+        objHomePage.navigateToMenuTShirts();
     }
 
 
