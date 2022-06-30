@@ -9,6 +9,7 @@ public class TestsHomePage extends setupPage{
 
     @Test
     @Tag("Text")
+    @DisplayName("Verified the headings and paragraph")
     void checkBottomHeadingsAndParagraph(){
         // Create object from HomePage
         objHomePage = new HomePage(browser);
@@ -17,8 +18,20 @@ public class TestsHomePage extends setupPage{
         objHomePage.veryBottomHeaderTwo();
         objHomePage.veryBottomParagraph();
     }
+
+    @Test
+    @Tag("CMSinfo")
+    @DisplayName("Verified icon,heading and text in Cmsinfo block")
+    void checkCMS_Elements(){
+        objHomePage = new HomePage(browser);
+        objHomePage.veryComeVisitUsIcon();
+        objHomePage.veryComeVisitUsHeading();
+        objHomePage.veryComeVisitUsParagraph();
+    }
+
     @Test
     @Tag("Footer elements")
+    @DisplayName("Block newsLetter module")
     void checkFooterNewsLetter_SocialModule_TC1(){
         // Create object from HomePage
         objHomePage = new HomePage(browser);
@@ -29,12 +42,30 @@ public class TestsHomePage extends setupPage{
         objHomePage.pressNewsLetterSubmitButton();
         objHomePage.verifySubscribedMessage();
     }
+
     @Test
     @Tag("Footer elements")
+    @DisplayName("Block newsLetter module")
     void checkFooterNewsLetter_SocialModule_TC2(){
         // Create object from HomePage
         objHomePage = new HomePage(browser);
         scrollEndPage();
         objHomePage.veryFooterFollowUsHeading();
     }
+
+    @Test
+    @Tag("Footer elements")
+    @DisplayName("Block FollowUs module")
+    void checkFooterFollowUs_Module_TC3() throws InterruptedException {
+        objHomePage = new HomePage(browser);
+        objHomePage.linkFooterFaceebok();
+
+/*        objHomePage.linkFooterTwitter();
+        objHomePage.linkFooterYouTube();*/
+    }
+
+
+
+
+
 }

@@ -2,10 +2,15 @@ package eCommercePages;
 
 import KikoCustom.Highlighter;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.time.Duration;
+import java.util.ArrayList;
 
 public class HomePage {
 
@@ -15,9 +20,9 @@ public class HomePage {
         this.browser = browser;
         PageFactory.initElements(browser,this);
     }
-
     ///////////////////////////////////////////////////////////
-    // EDITORIAL -  Module
+
+    // EDITORIAL - Module
     @FindBy (xpath = "//*[@id=\"editorial_block_center\"]/h1")
     WebElement bottomHeadingOneBottom;
     public void veryBottomHeader(){
@@ -41,6 +46,48 @@ public class HomePage {
     }
     ///////////////////////////////////////////////////////////
 
+    // CMSinfo - Module
+    @FindBy(xpath = "//*[@id=\"icon-truck\"]")
+    WebElement comeVisitUsIcon;
+    public void veryComeVisitUsIcon(){
+        Highlighter.highlightElement(browser, comeVisitUsIcon);
+        comeVisitUsIcon.isDisplayed();
+        System.out.println("Icon is visible");
+    }
+    @FindBy(xpath = "//*[@id=\"cmsinfo_block\"]/div[1]/ul/li[1]/div/h3")
+    WebElement ComeVisitUsHeading;
+    public void veryComeVisitUsHeading(){
+        Highlighter.highlightElement(browser, ComeVisitUsHeading);
+        String  getComeVisitUsHeading = ComeVisitUsHeading.getText();
+        Assertions.assertEquals("Come Visit Us", getComeVisitUsHeading);
+        System.out.println("Heading is correct and visible!");
+    }
+    @FindBy(xpath = "//*[@id=\"cmsinfo_block\"]/div[1]/ul/li[1]/div/p")
+    WebElement ComeVisitUsParagraph;
+    public void veryComeVisitUsParagraph(){
+        Highlighter.highlightElement(browser, ComeVisitUsParagraph);
+        String  getComeVisitUsParagraph = ComeVisitUsParagraph.getText();
+        Assertions.assertEquals("We are located in Research Triangle Park, North Carolina, USA", getComeVisitUsParagraph);
+        System.out.println("Paragraph is correct and visible!");
+    }
+    ///////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ///////////////////////////////////////////////////////////
     // FOOTER - NewsLetter social module
     @FindBy (xpath = "//*[@id=\"newsletter_block_left\"]/h4")
     WebElement footerNewsLetterHeading;
@@ -92,12 +139,52 @@ public class HomePage {
     }
 
 
-    @FindBy (linkText = "https://www.facebook.com/groups/525066904174158/")
+    @FindBy (xpath = "//*[@id=\"social_block\"]/ul/li[1]/a")
     WebElement footerLinkFacebook;
-    @FindBy (linkText = "https://twitter.com/seleniumfrmwrk")
+    public void linkFooterFaceebok() throws InterruptedException {
+        footerLinkFacebook.isDisplayed();
+        if (browser.getPageSource().contains("https://www.facebook.com/groups/525066904174158/")){
+            // method Keys.chord
+            String clicklinkFacebook = Keys.chord(Keys.CONTROL, Keys.ENTER);
+            footerLinkYouTube.sendKeys(clicklinkFacebook);
+            Thread.sleep(3000);
+            //List with the views
+            ArrayList<String> w = new ArrayList<>(browser.getWindowHandles());
+            //Switch to open tab
+            browser.switchTo().window(w.get(1));
+            Thread.sleep(3000);
+            //Switch to first tab
+            browser.switchTo().window(w.get(0));
+            Thread.sleep(3000);
+            System.out.println("Link is ok:" + "Facebook");
+        }else {
+            System.out.println("Not contains the referal link!");
+        }
+    }
+    @FindBy (xpath = "//*[@id=\"social_block\"]/ul/li[2]/a")
     WebElement footerLinkTwiter;
-    @FindBy (linkText = "https://www.youtube.com/channel/UCHl59sI3SRjQ-qPcTrgt0tA")
+    public void linkFooterTwitter(){
+        footerLinkTwiter.isDisplayed();
+        if (browser.getPageSource().contains("https://twitter.com/seleniumfrmwrk")){
+            System.out.println("Link:" + "Twitter");
+            String clicklinkTwitter = Keys.chord(Keys.CONTROL, Keys.ENTER);
+            footerLinkYouTube.sendKeys(clicklinkTwitter);
+        }else {
+            System.out.println("Not contains the referal link!");
+        }
+    }
+    @FindBy (xpath = "//*[@id=\"social_block\"]/ul/li[3]/a")
     WebElement footerLinkYouTube;
+    public void linkFooterYouTube(){
+        footerLinkYouTube.isDisplayed();
+        if (browser.getPageSource().contains("https://www.youtube.com/channel/UCHl59sI3SRjQ-qPcTrgt0tA")){
+            System.out.println("Link:" + "YouTube");
+            String clicklinkYouTube = Keys.chord(Keys.CONTROL, Keys.ENTER);
+            footerLinkYouTube.sendKeys(clicklinkYouTube);
+        }else {
+            System.out.println("Not contains the referal link!");
+        }
+    }
 
 
 
