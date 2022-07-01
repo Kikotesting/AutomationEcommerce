@@ -1,4 +1,3 @@
-import KikoCustom.Highlighter;
 import eCommercePages.HomePage;
 import eCommerceSetup.setupPage;
 import org.junit.jupiter.api.DisplayName;
@@ -8,15 +7,41 @@ import org.junit.jupiter.api.Test;
 public class TestsHomePage extends setupPage{
     HomePage objHomePage;
 
+
+    @Test
+    @Tag("HorizontalBar Menu")
+    @DisplayName("Verified the ContactUs button, SignIn button, Call us number")
+    void checkHorizontalBarMenu() throws InterruptedException {
+        objHomePage = new HomePage(browser);
+
+        objHomePage.checkCallUsNumberText();
+
+        objHomePage.checkContactUsMenuText();
+        objHomePage.clickContactUsMenu();
+        Thread.sleep(2000);
+        objHomePage.overViewContactUsMenu();
+        Thread.sleep(2000);
+        browser.navigate().back();
+        Thread.sleep(2000);
+
+        objHomePage.checkSignInMenuText();
+        objHomePage.clickSignInMenu();
+        Thread.sleep(2000);
+        objHomePage.overViewSignInMenu();
+        Thread.sleep(2000);
+    }
+
     @Test
     @Tag("Text")
     @DisplayName("Verified the headings and paragraph")
     void checkBottomHeadingsAndParagraph(){
         // Create object from HomePage
         objHomePage = new HomePage(browser);
-        scrollEndPage();
+        scrollToPixels(300);
         objHomePage.veryBottomHeader();
+        scrollToPixels(300);
         objHomePage.veryBottomHeaderTwo();
+        scrollToPixels(300);
         objHomePage.veryBottomParagraph();
     }
 
@@ -25,6 +50,7 @@ public class TestsHomePage extends setupPage{
     @DisplayName("Verified icon,heading and text in Cmsinfo block")
     void checkCMS_Elements(){
         objHomePage = new HomePage(browser);
+        scrollToWebElement(objHomePage.comeVisitUsIcon);
         objHomePage.veryComeVisitUsIcon();
         objHomePage.veryComeVisitUsHeading();
         objHomePage.veryComeVisitUsParagraph();
@@ -70,15 +96,13 @@ public class TestsHomePage extends setupPage{
     @Test
     @Tag("Main Menu")
     @DisplayName("Hover the MainMenu buttons")
-    void checkMainMenuButtons(){
+    void checkMainMenuButtons() throws InterruptedException {
         objHomePage = new HomePage(browser);
         objHomePage.navigateToMenuWomen();
         objHomePage.navigateToMenuDresses();
-        objHomePage.navigateToMenuWomen();
         objHomePage.navigateToMenuTShirts();
         objHomePage.navigateToMenuWomen();
         objHomePage.navigateToMenuDresses();
-        objHomePage.navigateToMenuTShirts();
     }
 
 

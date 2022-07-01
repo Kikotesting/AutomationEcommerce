@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
 
@@ -39,8 +40,19 @@ public class setupPage {
         browser.quit();
     }
 
+    // SCROLLING elements
+    public void scrollToPixels(int pixels) {
+        JavascriptExecutor js = (JavascriptExecutor) browser;
+        js.executeScript("window.scrollBy(0,arguments[0])",pixels);
+    }
+    public void scrollToWebElement(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) browser;
+        js.executeScript("arguments[0].scrollIntoView();",element);
+    }
     public void scrollEndPage() {
         JavascriptExecutor js = (JavascriptExecutor) browser;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
     }
+
+    // Select elements
 }
