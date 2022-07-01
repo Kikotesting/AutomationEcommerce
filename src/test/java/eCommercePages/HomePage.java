@@ -63,6 +63,9 @@ public class HomePage {
     WebElement uploaderField_CustomUsPage;
     @FindBy(xpath = "//*[@id=\"uniform-fileUpload\"]/span[2]")
     WebElement uploaderAttachFileButton;
+    @FindBy(xpath = "//*[@id=\"submitMessage\"]/span/i")
+    WebElement sendSubmitButton_CustomUsPage;
+
     public void overViewContactUsMenu() throws InterruptedException {
         Thread.sleep(2000);
         customerServiceHeading_CustomUsPage.isDisplayed();
@@ -86,17 +89,27 @@ public class HomePage {
         subjectSelectingField_CustomUsPage.click();
         Select select = new Select(subjectSelectingField_CustomUsPage);
         select.selectByValue("2");
-        boolean isSelectedTwo = subjectSelectingField_CustomUsPage.isSelected();
         Thread.sleep(1000);
-        select.deselectByValue("2");
+        subjectSelectingField_CustomUsPage.click();
         select.selectByValue("1");
-        boolean isSelectedOne = subjectSelectingField_CustomUsPage.isSelected();
         Thread.sleep(1000);
-        select.deselectByValue("1");
+        subjectSelectingField_CustomUsPage.click();
+        select.selectByValue("0");
+        Thread.sleep(1000);
+        subjectSelectingField_CustomUsPage.click();
 
         uploaderField_CustomUsPage.isDisplayed();
         Highlighter.highlightElement(browser,uploaderField_CustomUsPage);
         Thread.sleep(1000);
+
+        uploaderAttachFileButton.isDisplayed();
+        Highlighter.highlightElement(browser,uploaderAttachFileButton);
+        Thread.sleep(1000);
+
+        sendSubmitButton_CustomUsPage.isDisplayed();
+        Highlighter.highlightElement(browser,sendSubmitButton_CustomUsPage);
+        Thread.sleep(1000);
+        sendSubmitButton_CustomUsPage.click();
 
         System.out.println("ContactUsMenu_Overview page is complete!");
     }

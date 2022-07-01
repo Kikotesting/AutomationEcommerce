@@ -13,7 +13,7 @@ public class TestsHomePage extends setupPage{
     @DisplayName("Verified the ContactUs button, SignIn button, Call us number")
     void checkHorizontalBarMenu() throws InterruptedException {
         objHomePage = new HomePage(browser);
-
+        Thread.sleep(1000);
         objHomePage.checkCallUsNumberText();
 
         objHomePage.checkContactUsMenuText();
