@@ -103,6 +103,7 @@ public class HomePage {
         actions.perform();
         browser.manage().timeouts().pageLoadTimeout(2000, SECONDS);
     }
+    ///////////////////////////////////////////////////////////
 
 
 
@@ -118,7 +119,7 @@ public class HomePage {
 
 
     ///////////////////////////////////////////////////////////
-    // FOOTER - NewsLetter social module
+    // FOOTER - NewsLetter: Heading, InputBar, subscribedButton
     @FindBy (xpath = "//*[@id=\"newsletter_block_left\"]/h4")
     WebElement footerNewsLetterHeading;
     public void veryFooterNewsLetterHeading(){
@@ -160,6 +161,8 @@ public class HomePage {
         }
 
     }
+
+    // FOOTER - Follow us: Facebook, Twiter, Youtube - links
     @FindBy (xpath = "//*[@id=\"social_block\"]/h4")
     WebElement footerFollowUsHeading;
     public void veryFooterFollowUsHeading(){
@@ -167,25 +170,24 @@ public class HomePage {
         String  getFooterFollowUsHeading = footerFollowUsHeading.getText();
         Assertions.assertEquals("Follow us", getFooterFollowUsHeading);
     }
-
-
     @FindBy (xpath = "//*[@id=\"social_block\"]/ul/li[1]/a")
     WebElement footerLinkFacebook;
-    public void linkFooterFacebook() throws InterruptedException {
+    public void veryLinkFooterFacebook() throws InterruptedException {
         footerLinkFacebook.isDisplayed();
         if (browser.getPageSource().contains("https://www.facebook.com/groups/525066904174158/")){
             // method Keys.chord
             String clicklinkFacebook = Keys.chord(Keys.CONTROL, Keys.ENTER);
-            footerLinkYouTube.sendKeys(clicklinkFacebook);
-            Thread.sleep(3000);
+            footerLinkFacebook.sendKeys(clicklinkFacebook);
+            Thread.sleep(2000);
             //List with the views
-            ArrayList<String> w = new ArrayList<>(browser.getWindowHandles());
+            ArrayList<String> facebookView = new ArrayList<>(browser.getWindowHandles());
             //Switch to open tab
-            browser.switchTo().window(w.get(1));
-            Thread.sleep(3000);
+            browser.switchTo().window(facebookView.get(1));
+            Thread.sleep(2000);
+            browser.close();
             //Switch to first tab
-            browser.switchTo().window(w.get(0));
-            Thread.sleep(3000);
+            browser.switchTo().window(facebookView.get(0));
+            Thread.sleep(2000);
             System.out.println("Link is ok:" + "Facebook");
         }else {
             System.out.println("Not contains the referal link!");
@@ -193,27 +195,51 @@ public class HomePage {
     }
     @FindBy (xpath = "//*[@id=\"social_block\"]/ul/li[2]/a")
     WebElement footerLinkTwiter;
-    public void linkFooterTwitter(){
+    public void veryLinkFooterTwitter() throws InterruptedException {
         footerLinkTwiter.isDisplayed();
         if (browser.getPageSource().contains("https://twitter.com/seleniumfrmwrk")){
-            System.out.println("Link:" + "Twitter");
-            String clicklinkTwitter = Keys.chord(Keys.CONTROL, Keys.ENTER);
-            footerLinkYouTube.sendKeys(clicklinkTwitter);
+            // method Keys.chord
+            String clicklinkTwiter = Keys.chord(Keys.CONTROL, Keys.ENTER);
+            footerLinkTwiter.sendKeys(clicklinkTwiter);
+            Thread.sleep(3000);
+            //List with the views
+            ArrayList<String> twiterView = new ArrayList<>(browser.getWindowHandles());
+            //Switch to open tab
+            browser.switchTo().window(twiterView.get(1));
+            Thread.sleep(3000);
+            browser.close();
+            //Switch to first tab
+            browser.switchTo().window(twiterView.get(0));
+            Thread.sleep(3000);
+            System.out.println("Link is ok:" + "Twitter");
         }else {
             System.out.println("Not contains the referal link!");
         }
+
     }
     @FindBy (xpath = "//*[@id=\"social_block\"]/ul/li[3]/a")
     WebElement footerLinkYouTube;
-    public void linkFooterYouTube(){
+    public void veryLinkFooterYouTube() throws InterruptedException {
         footerLinkYouTube.isDisplayed();
         if (browser.getPageSource().contains("https://www.youtube.com/channel/UCHl59sI3SRjQ-qPcTrgt0tA")){
-            System.out.println("Link:" + "YouTube");
-            String clicklinkYouTube = Keys.chord(Keys.CONTROL, Keys.ENTER);
-            footerLinkYouTube.sendKeys(clicklinkYouTube);
+            // method Keys.chord
+            String clicklinkTwiter = Keys.chord(Keys.CONTROL, Keys.ENTER);
+            footerLinkYouTube.sendKeys(clicklinkTwiter);
+            Thread.sleep(2000);
+            //List with the views
+            ArrayList<String> YoutubeView = new ArrayList<>(browser.getWindowHandles());
+            //Switch to open tab
+            browser.switchTo().window(YoutubeView.get(1));
+            Thread.sleep(2000);
+            browser.close();
+            //Switch to first tab
+            browser.switchTo().window(YoutubeView.get(0));
+            Thread.sleep(2000);
+            System.out.println("Link is ok:" + "Youtube");
         }else {
             System.out.println("Not contains the referal link!");
         }
+
     }
 
 

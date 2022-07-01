@@ -59,15 +59,17 @@ public class TestsHomePage extends setupPage{
     @DisplayName("FollowUs module")
     void checkFooterFollowUs_Module_TC3() throws InterruptedException {
         objHomePage = new HomePage(browser);
-        objHomePage.linkFooterFacebook();
-        // Still in-progress
-      /*        objHomePage.linkFooterTwitter();
-        objHomePage.linkFooterYouTube();*/
+        objHomePage.veryLinkFooterFacebook();
+        Thread.sleep(2000);
+        objHomePage.veryLinkFooterTwitter();
+        Thread.sleep(2000);
+        objHomePage.veryLinkFooterYouTube();
+        Thread.sleep(2000);
     }
 
     @Test
     @Tag("Main Menu")
-    @DisplayName("Hover the MainMenu pages")
+    @DisplayName("Hover the MainMenu buttons")
     void checkMainMenuButtons(){
         objHomePage = new HomePage(browser);
         objHomePage.navigateToMenuWomen();
@@ -78,6 +80,8 @@ public class TestsHomePage extends setupPage{
         objHomePage.navigateToMenuDresses();
         objHomePage.navigateToMenuTShirts();
     }
+
+
 
 
 
