@@ -47,69 +47,73 @@ public class HomePage {
         System.out.println("Click ContactUs Menu");
     }
     @FindBy(xpath = "//*[@id=\"center_column\"]/h1")
-    WebElement customerServiceHeading_CustomUsPage;
+    WebElement customerServiceHeading_ContactUsPage;
     @FindBy(xpath = "//*[@id=\"center_column\"]/form")
-    WebElement messageForm_CustomUsPage;
+    WebElement messageForm_ContactUsPage;
     @FindBy(xpath = "//*[@id=\"email\"]")
-    WebElement emailField_CustomUsPage;
+    WebElement emailField_ContactUsPage;
     @FindBy(xpath = "//*[@id=\"id_order\"]")
-    WebElement orderReferenceField_CustomUsPage;
+    WebElement orderReferenceField_ContactUsPage;
     @FindBy(xpath = "//*[@id=\"message\"]")
-    WebElement textArea_CustomUsPage;
+    WebElement textArea_ContactUsPage;
     @FindBy(xpath = "//*[@id=\"id_contact\"]")
-    WebElement subjectSelectingField_CustomUsPage;
+    WebElement subjectSelectingField_ContactUsPage;
 
     @FindBy(xpath = "//*[@id=\"uniform-fileUpload\"]")
-    WebElement uploaderField_CustomUsPage;
-    @FindBy(xpath = "//*[@id=\"uniform-fileUpload\"]/span[2]")
-    WebElement uploaderAttachFileButton;
+    WebElement uploaderField_ContactUsPage;
+    @FindBy(xpath = "//*[@id=\"submitMessage\"]")
+    WebElement uploaderAttachFileButton_ContactUsPage;
     @FindBy(xpath = "//*[@id=\"submitMessage\"]/span/i")
-    WebElement sendSubmitButton_CustomUsPage;
+    WebElement sendSubmitButton_ContactUsPage;
+    @FindBy(xpath = "//*[@id=\"login_form\"]/div/p[1]")
+    WebElement forgotPassword_ContactUsPage;
+    @FindBy(xpath = "//*[@id=\"center_column\"]")
+    public WebElement scrollToSeeOverviewContactUs;
 
     public void overViewContactUsMenu() throws InterruptedException {
         Thread.sleep(2000);
-        customerServiceHeading_CustomUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,customerServiceHeading_CustomUsPage);
+        customerServiceHeading_ContactUsPage.isDisplayed();
+        Highlighter.highlightElement(browser,customerServiceHeading_ContactUsPage);
         Thread.sleep(1000);
-        messageForm_CustomUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,messageForm_CustomUsPage);
+        messageForm_ContactUsPage.isDisplayed();
+        Highlighter.highlightElement(browser,messageForm_ContactUsPage);
         Thread.sleep(1000);
-        emailField_CustomUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,emailField_CustomUsPage);
+        emailField_ContactUsPage.isDisplayed();
+        Highlighter.highlightElement(browser,emailField_ContactUsPage);
         Thread.sleep(1000);
-        orderReferenceField_CustomUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,orderReferenceField_CustomUsPage);
+        orderReferenceField_ContactUsPage.isDisplayed();
+        Highlighter.highlightElement(browser,orderReferenceField_ContactUsPage);
         Thread.sleep(1000);
-        textArea_CustomUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,textArea_CustomUsPage);
+        textArea_ContactUsPage.isDisplayed();
+        Highlighter.highlightElement(browser,textArea_ContactUsPage);
         Thread.sleep(1000);
 
-        subjectSelectingField_CustomUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,subjectSelectingField_CustomUsPage);
-        subjectSelectingField_CustomUsPage.click();
-        Select select = new Select(subjectSelectingField_CustomUsPage);
+        subjectSelectingField_ContactUsPage.isDisplayed();
+        Highlighter.highlightElement(browser,subjectSelectingField_ContactUsPage);
+        subjectSelectingField_ContactUsPage.click();
+        Select select = new Select(subjectSelectingField_ContactUsPage);
         select.selectByValue("2");
         Thread.sleep(1000);
-        subjectSelectingField_CustomUsPage.click();
+        subjectSelectingField_ContactUsPage.click();
         select.selectByValue("1");
         Thread.sleep(1000);
-        subjectSelectingField_CustomUsPage.click();
+        subjectSelectingField_ContactUsPage.click();
         select.selectByValue("0");
         Thread.sleep(1000);
-        subjectSelectingField_CustomUsPage.click();
+        subjectSelectingField_ContactUsPage.click();
 
-        uploaderField_CustomUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,uploaderField_CustomUsPage);
+        uploaderField_ContactUsPage.isDisplayed();
+        Highlighter.highlightElement(browser,uploaderField_ContactUsPage);
         Thread.sleep(1000);
 
-        uploaderAttachFileButton.isDisplayed();
-        Highlighter.highlightElement(browser,uploaderAttachFileButton);
+        uploaderAttachFileButton_ContactUsPage.isDisplayed();
+        Highlighter.highlightElement(browser,uploaderAttachFileButton_ContactUsPage);
         Thread.sleep(1000);
 
-        sendSubmitButton_CustomUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,sendSubmitButton_CustomUsPage);
+/*        sendSubmitButton_ContactUsPage.isDisplayed();
+        Highlighter.highlightElement(browser,sendSubmitButton_ContactUsPage);
         Thread.sleep(1000);
-        sendSubmitButton_CustomUsPage.click();
+        sendSubmitButton_ContactUsPage.click();*/
 
         System.out.println("ContactUsMenu_Overview page is complete!");
     }
@@ -133,6 +137,8 @@ public class HomePage {
     WebElement signInSubmitButton_SignInMenu;
     @FindBy(xpath = "//*[@id=\"columns\"]/div[1]/span[2]")
     WebElement breadcrumb_SignInMenu;
+    @FindBy(xpath = "//*[@id=\"columns\"]/div[3]")
+    public WebElement scrollToSeeOverviewSignIn;
 
 
     public void checkSignInMenuText(){
@@ -149,6 +155,9 @@ public class HomePage {
     public void overViewSignInMenu() throws InterruptedException {
         Authentication_SignInMenu.isDisplayed();
         Highlighter.highlightElement(browser,Authentication_SignInMenu);
+        Thread.sleep(1000);
+        breadcrumb_SignInMenu.isDisplayed();
+        Highlighter.highlightElement(browser,breadcrumb_SignInMenu);
         Thread.sleep(1000);
         createAccountSection_SignInMenu.isDisplayed();
         Highlighter.highlightElement(browser,createAccountSection_SignInMenu);
@@ -171,8 +180,8 @@ public class HomePage {
         signInSubmitButton_SignInMenu.isDisplayed();
         Highlighter.highlightElement(browser,signInSubmitButton_SignInMenu);
         Thread.sleep(1000);
-        breadcrumb_SignInMenu.isDisplayed();
-        Highlighter.highlightElement(browser,breadcrumb_SignInMenu);
+        forgotPassword_ContactUsPage.isDisplayed();
+        Highlighter.highlightElement(browser,forgotPassword_ContactUsPage);
         Thread.sleep(1000);
         System.out.println("SignInMenu_Overview page is complete!");
     }
@@ -274,7 +283,7 @@ public class HomePage {
     }
     public void typingInNewsLetterInputBar(){
         Highlighter.highlightElement(browser,newsLetterInputBar);
-        newsLetterInputBar.sendKeys("kik2o3@mail.bg");
+        newsLetterInputBar.sendKeys("kiko1111111111@mail.bg");
     }
     @FindBy (xpath = "//*[@id=\"newsletter_block_left\"]/div/form/div/button")
     WebElement newsLetterSubmitButton;
@@ -291,13 +300,13 @@ public class HomePage {
 
         String companySubscribedMessage = "Newsletter : You have successfully subscribed to this newsletter.";
         String companyRegisteredMessage = "Newsletter : This email address is already registered.";
+        if (getActualSubscribedMessage.equals(companySubscribedMessage)){
+            System.out.println("First condition is true\n" + companySubscribedMessage);
 
-        if (getActualSubscribedMessage == companySubscribedMessage ){
-            System.out.println("First condition is true");
-            Assertions.assertEquals(companySubscribedMessage, getActualSubscribedMessage);
+        }else if (getActualSubscribedMessage.equals(companyRegisteredMessage)){
+            System.out.println("Second condition is true\n" + companyRegisteredMessage);
         }else {
-            System.out.println("Second condition is true");
-            Assertions.assertEquals(companyRegisteredMessage, getActualSubscribedMessage);
+            System.out.println("??????");
         }
 
     }

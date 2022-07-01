@@ -10,7 +10,7 @@ public class TestsHomePage extends setupPage{
 
     @Test
     @Tag("HorizontalBar Menu")
-    @DisplayName("Verified the ContactUs button, SignIn button, Call us number")
+    @DisplayName("Verified the Call us number, ContactUs button and page, SignIn button and page")
     void checkHorizontalBarMenu() throws InterruptedException {
         objHomePage = new HomePage(browser);
         Thread.sleep(1000);
@@ -19,6 +19,7 @@ public class TestsHomePage extends setupPage{
         objHomePage.checkContactUsMenuText();
         objHomePage.clickContactUsMenu();
         Thread.sleep(2000);
+        scrollToWebElement(objHomePage.scrollToSeeOverviewContactUs);
         objHomePage.overViewContactUsMenu();
         Thread.sleep(2000);
         browser.navigate().back();
@@ -27,13 +28,14 @@ public class TestsHomePage extends setupPage{
         objHomePage.checkSignInMenuText();
         objHomePage.clickSignInMenu();
         Thread.sleep(2000);
+        scrollToWebElement(objHomePage.scrollToSeeOverviewContactUs);
         objHomePage.overViewSignInMenu();
         Thread.sleep(2000);
     }
 
     @Test
     @Tag("Text")
-    @DisplayName("Verified the headings and paragraph")
+    @DisplayName("Verified the headings and paragraph on HomePage")
     void checkBottomHeadingsAndParagraph(){
         // Create object from HomePage
         objHomePage = new HomePage(browser);
@@ -104,11 +106,6 @@ public class TestsHomePage extends setupPage{
         objHomePage.navigateToMenuWomen();
         objHomePage.navigateToMenuDresses();
     }
-
-
-
-
-
 
 
 }
