@@ -1,5 +1,4 @@
 package eCommercePages;
-
 import CustomScripts.Highlighter;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
@@ -12,9 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
-
-public class HomePage {
+public class HomePage{
 
     WebDriver browser;
     // Page factory construction
@@ -214,48 +211,116 @@ public class HomePage {
     ///////////////////////////////////////////////////////////
     // CMSinfo - Module
     @FindBy(xpath = "//*[@id=\"icon-truck\"]")
-    public WebElement comeVisitUsIcon;
+    public WebElement comeVisitUsIcon_CMSInfo;
     public void veryComeVisitUsIcon(){
-        Highlighter.highlightElement(browser, comeVisitUsIcon);
-        comeVisitUsIcon.isDisplayed();
+        Highlighter.highlightElement(browser, comeVisitUsIcon_CMSInfo);
+        comeVisitUsIcon_CMSInfo.isDisplayed();
         System.out.println("Icon is visible");
     }
     @FindBy(xpath = "//*[@id=\"cmsinfo_block\"]/div[1]/ul/li[1]/div/h3")
-    WebElement ComeVisitUsHeading;
+    WebElement ComeVisitUsHeading_CMSInfo;
     public void veryComeVisitUsHeading(){
-        Highlighter.highlightElement(browser, ComeVisitUsHeading);
-        String  getComeVisitUsHeading = ComeVisitUsHeading.getText();
+        Highlighter.highlightElement(browser, ComeVisitUsHeading_CMSInfo);
+        String  getComeVisitUsHeading = ComeVisitUsHeading_CMSInfo.getText();
         Assertions.assertEquals("Come Visit Us", getComeVisitUsHeading);
         System.out.println("Heading is correct and visible!");
     }
     @FindBy(xpath = "//*[@id=\"cmsinfo_block\"]/div[1]/ul/li[1]/div/p")
-    WebElement ComeVisitUsParagraph;
+    WebElement ComeVisitUsParagraph_CMSInfo;
     public void veryComeVisitUsParagraph(){
-        Highlighter.highlightElement(browser, ComeVisitUsParagraph);
-        String  getComeVisitUsParagraph = ComeVisitUsParagraph.getText();
+        Highlighter.highlightElement(browser, ComeVisitUsParagraph_CMSInfo);
+        String  getComeVisitUsParagraph = ComeVisitUsParagraph_CMSInfo.getText();
         Assertions.assertEquals("We are located in Research Triangle Park, North Carolina, USA", getComeVisitUsParagraph);
         System.out.println("Paragraph is correct and visible!");
     }
+    @FindBy (xpath = "//*[@id=\"cmsinfo_block\"]/div[2]/h3")
+    WebElement customBlockHeading_CMSInfo;
+    @FindBy (xpath = "//*[@id=\"cmsinfo_block\"]/div[2]/p[1]/strong")
+    WebElement customBlockHeadingStrong_CMSInfo;
+    @FindBy (xpath = "//*[@id=\"cmsinfo_block\"]/div[2]/p[2]")
+    WebElement customBlockParagraph_CMSInfo;
+    public void veryCustomBlockText(){
+        Highlighter.highlightElement(browser, customBlockHeading_CMSInfo);
+        customBlockHeading_CMSInfo.isDisplayed();
+        Highlighter.highlightElement(browser, customBlockHeadingStrong_CMSInfo);
+        customBlockHeadingStrong_CMSInfo.isDisplayed();
+        Highlighter.highlightElement(browser, customBlockParagraph_CMSInfo);
+        customBlockParagraph_CMSInfo.isDisplayed();
+        String  getCustomBlockHeadingText = customBlockHeading_CMSInfo.getText();
+        Assertions.assertEquals("Custom Block", getCustomBlockHeadingText);
+    }
+
+
     ///////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////
     // MainMENU - Pages
     @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[1]/a")
     WebElement menuWomen;
+    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[1]/ul/li[1]/ul/li[1]/a")
+    WebElement menuWomenTopsTShirts;
+    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[1]/ul/li[1]/ul/li[2]/a")
+    WebElement menuWomenTopsBlouses;
+    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[1]/ul/li[2]/ul/li[1]/a")
+    WebElement menuWomenDressesCasual;
+    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[1]/ul/li[2]/ul/li[2]/a")
+    WebElement menuWomenDressesEvening;
+    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[1]/ul/li[2]/ul/li[3]/a")
+    WebElement menuWomenDressesSummer;
+
     public void navigateToMenuWomen() throws InterruptedException {
         Actions actions = new Actions(browser);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         actions.moveToElement(menuWomen);
         actions.perform();
-        Thread.sleep(2000);
+        System.out.println("Hover the WomenMENU");
+        Thread.sleep(1000);
+
+        menuWomenTopsTShirts.isDisplayed();
+        actions.moveToElement(menuWomenTopsTShirts);
+        actions.perform();
+        System.out.println("Hover the WomenMENU->Tops-Tshirts");
+        Thread.sleep(1000);
+        menuWomenTopsBlouses.isDisplayed();
+        actions.moveToElement(menuWomenTopsBlouses);
+        actions.perform();
+        System.out.println("Hover the WomenMENU->Tops-Blouses");
+        Thread.sleep(1000);
+
+        actions.moveToElement(menuWomenDressesCasual);
+        actions.perform();
+        System.out.println("Hover the WomenMENU->Dresses-Casual");
+        Thread.sleep(1000);
+        actions.moveToElement(menuWomenDressesEvening);
+        actions.perform();
+        System.out.println("Hover the WomenMENU->Dresses-Evening");
+        Thread.sleep(1000);
+        actions.moveToElement(menuWomenDressesSummer);
+        actions.perform();
+        System.out.println("Hover the WomenMENU->Dresses-Summer");
+        Thread.sleep(1000);
     }
     @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[2]/a")
     WebElement menuDresses;
+    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[1]/a")
+    WebElement menuDressesCasual;
+    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[2]/a")
+    WebElement menuDressesEvening;
     public void navigateToMenuDresses() throws InterruptedException {
         Actions actions = new Actions(browser);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         actions.moveToElement(menuDresses);
         actions.perform();
-        Thread.sleep(2000);
+        System.out.println("Hover the DressesMENU");
+        Thread.sleep(1000);
+
+        actions.moveToElement(menuDressesCasual);
+        actions.perform();
+        System.out.println("Hover the DressesMENU->Casual");
+        Thread.sleep(1000);
+        actions.moveToElement(menuDressesEvening);
+        actions.perform();
+        System.out.println("Hover the DressesMENU->Evening");
+        Thread.sleep(1000);
     }
     @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[3]/a")
     WebElement menuTShirts;
@@ -264,6 +329,7 @@ public class HomePage {
         Thread.sleep(2000);
         actions.moveToElement(menuTShirts);
         actions.perform();
+        System.out.println("Hover the Tshirts Menu");
         Thread.sleep(2000);
     }
     ///////////////////////////////////////////////////////////
@@ -390,7 +456,5 @@ public class HomePage {
         }
 
     }
-
-
 
 }

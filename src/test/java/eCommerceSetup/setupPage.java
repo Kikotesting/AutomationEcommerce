@@ -1,5 +1,4 @@
 package eCommerceSetup;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -8,12 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-
-import java.util.concurrent.TimeUnit;
-
-import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class setupPage {
 
@@ -54,5 +48,8 @@ public class setupPage {
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
     }
 
-    // Select elements
+    // SELECT elements
+    public void selectElement(WebElement element){
+        Select select = new Select(element);
+    }
 }
