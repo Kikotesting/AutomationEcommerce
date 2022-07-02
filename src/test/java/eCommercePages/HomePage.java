@@ -305,6 +305,8 @@ public class HomePage{
     WebElement menuDressesCasual;
     @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[2]/a")
     WebElement menuDressesEvening;
+    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[3]/a")
+    WebElement menuDressesSummer;
     public void navigateToMenuDresses() throws InterruptedException {
         Actions actions = new Actions(browser);
         Thread.sleep(1000);
@@ -320,6 +322,10 @@ public class HomePage{
         actions.moveToElement(menuDressesEvening);
         actions.perform();
         System.out.println("Hover the DressesMENU->Evening");
+        Thread.sleep(1000);
+        actions.moveToElement(menuDressesSummer);
+        actions.perform();
+        System.out.println("Hover the DressesMENU->Summer");
         Thread.sleep(1000);
     }
     @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[3]/a")
