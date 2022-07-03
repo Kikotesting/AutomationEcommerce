@@ -22,52 +22,10 @@ public class HomePage{
 
     ///////////////////////////////////////////////////////////
     // Top horizontal bar: number, contactus menu, signIn menu
-    @FindBy (xpath = "//*[@id=\"header\"]/div[2]/div/div/nav/span")
-    WebElement callUsNumber;
-    public void checkCallUsNumberText(){
-        String  getCallUsNumber = callUsNumber.getText();
-        Highlighter.highlightElement(browser, callUsNumber);
-        Assertions.assertEquals("Call us now: 0123-456-789", getCallUsNumber);
-    }
-    @FindBy (id = "contact-link")
-    WebElement contactUsMenu;
-    public void checkContactUsMenuText(){
-        contactUsMenu.isDisplayed();
-        Highlighter.highlightElement(browser, contactUsMenu);
-        String  getContactMenuText = contactUsMenu.getText().trim();
-        Assertions.assertEquals("Contact us", getContactMenuText);
-        System.out.println("Button text and element are verified!");
-    }
-    public void clickContactUsMenu() throws InterruptedException {
-        Highlighter.highlightElement(browser,contactUsMenu);
-        contactUsMenu.click();
-        System.out.println("Click ContactUs Menu");
-    }
-    @FindBy(xpath = "//*[@id=\"center_column\"]/h1")
-    WebElement customerServiceHeading_ContactUsPage;
-    @FindBy(xpath = "//*[@id=\"center_column\"]/form")
-    WebElement messageForm_ContactUsPage;
-    @FindBy(xpath = "//*[@id=\"email\"]")
-    WebElement emailField_ContactUsPage;
-    @FindBy(xpath = "//*[@id=\"id_order\"]")
-    WebElement orderReferenceField_ContactUsPage;
-    @FindBy(xpath = "//*[@id=\"message\"]")
-    WebElement textArea_ContactUsPage;
-    @FindBy(xpath = "//*[@id=\"id_contact\"]")
-    WebElement subjectSelectingField_ContactUsPage;
 
-    @FindBy(xpath = "//*[@id=\"uniform-fileUpload\"]")
-    WebElement uploaderField_ContactUsPage;
-    @FindBy(xpath = "//*[@id=\"submitMessage\"]")
-    WebElement uploaderAttachFileButton_ContactUsPage;
-    @FindBy(xpath = "//*[@id=\"submitMessage\"]/span/i")
-    WebElement sendSubmitButton_ContactUsPage;
-    @FindBy(xpath = "//*[@id=\"login_form\"]/div/p[1]")
-    WebElement forgotPassword_ContactUsPage;
-    @FindBy(xpath = "//*[@id=\"center_column\"]")
-    public WebElement scrollToSeeOverviewContactUs;
 
-    public void overViewContactUsMenu() throws InterruptedException {
+
+    /*public void overViewContactUsMenu() throws InterruptedException {
         Thread.sleep(2000);
         customerServiceHeading_ContactUsPage.isDisplayed();
         Highlighter.highlightElement(browser,customerServiceHeading_ContactUsPage);
@@ -107,49 +65,15 @@ public class HomePage{
         Highlighter.highlightElement(browser,uploaderAttachFileButton_ContactUsPage);
         Thread.sleep(1000);
 
-/*        sendSubmitButton_ContactUsPage.isDisplayed();
+*//*        sendSubmitButton_ContactUsPage.isDisplayed();
         Highlighter.highlightElement(browser,sendSubmitButton_ContactUsPage);
         Thread.sleep(1000);
-        sendSubmitButton_ContactUsPage.click();*/
+        sendSubmitButton_ContactUsPage.click();*//*
 
         System.out.println("ContactUsMenu_Overview page is complete!");
-    }
-    @FindBy (className = "login")
-    WebElement signInMenu;
-    @FindBy(xpath = "//*[@id=\"center_column\"]/h1")
-    WebElement Authentication_SignInMenu;
-    @FindBy(xpath = "//*[@id=\"create-account_form\"]/h3")
-    WebElement createAccountSection_SignInMenu;
-    @FindBy(xpath = "//*[@id=\"SubmitCreate\"]/span")
-    WebElement createAnAccountButton_SignInMenu;
-    @FindBy(xpath = "//*[@id=\"create-account_form\"]/div/p")
-    WebElement emailAddress_SignInMenu;
-    @FindBy(xpath = "//*[@id=\"login_form\"]/h3")
-    WebElement alreadyRegistered_SignInMenu;
-    @FindBy(xpath = "//*[@id=\"email\"]")
-    WebElement emailAddressField_alreadyRegistered_SignInMenu;
-    @FindBy(xpath = "//*[@id=\"passwd\"]")
-    WebElement passwordField_alreadyRegistered_SignInMenu;
-    @FindBy(xpath = "//*[@id=\"SubmitLogin\"]")
-    WebElement signInSubmitButton_SignInMenu;
-    @FindBy(xpath = "//*[@id=\"columns\"]/div[1]/span[2]")
-    WebElement breadcrumb_SignInMenu;
-    @FindBy(xpath = "//*[@id=\"columns\"]/div[3]")
-    public WebElement scrollToSeeOverviewSignIn;
+    }*/
 
-
-    public void checkSignInMenuText(){
-        Highlighter.highlightElement(browser, signInMenu);
-        String  getSignInMenuText = signInMenu.getText().trim();
-        Assertions.assertEquals("Sign in", getSignInMenuText);
-    }
-    public void clickSignInMenu() throws InterruptedException {
-        signInMenu.isDisplayed();
-        Highlighter.highlightElement(browser,signInMenu);
-        signInMenu.click();
-        System.out.println("Click SignIn menu");
-    }
-    public void overViewSignInMenu() throws InterruptedException {
+    /*public void overViewSignInMenu() throws InterruptedException {
         Authentication_SignInMenu.isDisplayed();
         Highlighter.highlightElement(browser,Authentication_SignInMenu);
         Thread.sleep(1000);
@@ -181,20 +105,17 @@ public class HomePage{
         Highlighter.highlightElement(browser,forgotPassword_ContactUsPage);
         Thread.sleep(1000);
         System.out.println("SignInMenu_Overview page is complete!");
-    }
+    }*/
     ///////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////////////////////
     // SearchBox - Module
-    @FindBy(id = "search_query_top")
-    public WebElement searchBox;
-    @FindBy(name = "submit_search")
-    WebElement searchBox_SubmitButton;
+
     @FindBy(xpath = "//*[@id=\"center_column\"]/p")
     WebElement searchTextResult;
     @FindBy(xpath = "//*[@id=\"center_column\"]/h1/span[2]")
     WebElement searchResultFound;
-    public void invalidDataSearch(){
+/*    public void invalidDataSearch(){
         Highlighter.highlightElement(browser,searchBox);
         searchBox.isDisplayed();
         searchBox.click();
@@ -216,7 +137,7 @@ public class HomePage{
         Highlighter.highlightElement(browser,searchResultFound);
         String searchedText = searchResultFound.getText();
         System.out.println(searchedText);
-    }
+    }*/
 
 
     ///////////////////////////////////////////////////////////
@@ -284,23 +205,11 @@ public class HomePage{
         String  getCustomBlockHeadingText = customBlockHeading_CMSInfo.getText();
         Assertions.assertEquals("Custom Block", getCustomBlockHeadingText);
     }
-
-
     ///////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////
     // MainMENU - Pages
-    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[1]/a")
-    WebElement menuWomen;
-    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[1]/ul/li[1]/ul/li[1]/a")
-    WebElement menuWomenTopsTShirts;
-    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[1]/ul/li[1]/ul/li[2]/a")
-    WebElement menuWomenTopsBlouses;
-    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[1]/ul/li[2]/ul/li[1]/a")
-    WebElement menuWomenDressesCasual;
-    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[1]/ul/li[2]/ul/li[2]/a")
-    WebElement menuWomenDressesEvening;
-    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[1]/ul/li[2]/ul/li[3]/a")
-    WebElement menuWomenDressesSummer;
+
+
 
     public void navigateToMenuWomen() throws InterruptedException {
         Actions actions = new Actions(browser);
@@ -334,14 +243,7 @@ public class HomePage{
         System.out.println("Hover the WomenMENU->Dresses-Summer");
         Thread.sleep(1000);
     }
-    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[2]/a")
-    WebElement menuDresses;
-    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[1]/a")
-    WebElement menuDressesCasual;
-    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[2]/a")
-    WebElement menuDressesEvening;
-    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[3]/a")
-    WebElement menuDressesSummer;
+
     public void navigateToMenuDresses() throws InterruptedException {
         Actions actions = new Actions(browser);
         Thread.sleep(1000);
@@ -363,8 +265,7 @@ public class HomePage{
         System.out.println("Hover the DressesMENU->Summer");
         Thread.sleep(1000);
     }
-    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[3]/a")
-    WebElement menuTShirts;
+
     public void navigateToMenuTShirts() throws InterruptedException {
         Actions actions = new Actions(browser);
         Thread.sleep(2000);

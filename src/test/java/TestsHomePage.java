@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class TestsHomePage extends setupPage{
     HomePage objHomePage;
 
-    @Test
+    /*@Test
     @Tag("HorizontalBar Menu")
     @DisplayName("Verified the Call us number, ContactUs button and page, SignIn button and page")
     void checkHorizontalBarMenu() throws InterruptedException {
@@ -30,10 +30,7 @@ public class TestsHomePage extends setupPage{
         scrollToWebElement(objHomePage.scrollToSeeOverviewSignIn);
         objHomePage.overViewSignInMenu();
         Thread.sleep(2000);
-    }
-
-
-
+    }*/
 
     @Test
     @Tag("Main Menu")
