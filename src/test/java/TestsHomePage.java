@@ -27,10 +27,13 @@ public class TestsHomePage extends setupPage{
         objHomePage.checkSignInMenuText();
         objHomePage.clickSignInMenu();
         Thread.sleep(2000);
-        scrollToWebElement(objHomePage.scrollToSeeOverviewContactUs);
+        scrollToWebElement(objHomePage.scrollToSeeOverviewSignIn);
         objHomePage.overViewSignInMenu();
         Thread.sleep(2000);
     }
+
+
+
 
     @Test
     @Tag("Main Menu")
@@ -42,12 +45,31 @@ public class TestsHomePage extends setupPage{
         objHomePage.navigateToMenuTShirts();
     }
 
+
+    @Test
+    @Tag("Searchbox Module")
+    @DisplayName("Search box functionality")
+    void checkValidSearchData() throws InterruptedException {
+        objHomePage = new HomePage(browser);
+        objHomePage.validDataSearch();
+        Thread.sleep(2000);
+    }
+    @Test
+    @Tag("Searchbox Module")
+    @DisplayName("Search box functionality")
+    void checkInvalidSearchData() throws InterruptedException {
+        objHomePage = new HomePage(browser);
+        objHomePage.invalidDataSearch();
+        Thread.sleep(2000);
+    }
+
     @Test
     @Tag("CMSInfo Module")
     @DisplayName("Verified icon,heading and text in CmsInfo block")
     void checkCMS_Elements(){
         objHomePage = new HomePage(browser);
         scrollToWebElement(objHomePage.comeVisitUsIcon_CMSInfo);
+
         objHomePage.veryComeVisitUsIcon();
         objHomePage.veryComeVisitUsHeading();
         objHomePage.veryComeVisitUsParagraph();
@@ -61,11 +83,9 @@ public class TestsHomePage extends setupPage{
     void checkBottomHeadingsAndParagraph(){
         // Create object from HomePage
         objHomePage = new HomePage(browser);
-        scrollToPixels(300);
+        scrollEndPage();
         objHomePage.veryBottomHeader();
-        scrollToPixels(300);
         objHomePage.veryBottomHeaderTwo();
-        scrollToPixels(300);
         objHomePage.veryBottomParagraph();
     }
 

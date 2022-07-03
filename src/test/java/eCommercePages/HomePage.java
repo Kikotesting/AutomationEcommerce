@@ -185,6 +185,41 @@ public class HomePage{
     ///////////////////////////////////////////////////////////
 
     ///////////////////////////////////////////////////////////
+    // SearchBox - Module
+    @FindBy(id = "search_query_top")
+    public WebElement searchBox;
+    @FindBy(name = "submit_search")
+    WebElement searchBox_SubmitButton;
+    @FindBy(xpath = "//*[@id=\"center_column\"]/p")
+    WebElement searchTextResult;
+    @FindBy(xpath = "//*[@id=\"center_column\"]/h1/span[2]")
+    WebElement searchResultFound;
+    public void invalidDataSearch(){
+        Highlighter.highlightElement(browser,searchBox);
+        searchBox.isDisplayed();
+        searchBox.click();
+        searchBox.sendKeys("Kiko");
+        searchBox_SubmitButton.click();
+        String searchedText = searchTextResult.getText();
+        Highlighter.highlightElement(browser,searchTextResult);
+        Assertions.assertEquals("No results were found for your search \"Kiko\"",searchedText);
+        System.out.println("No data for this search!");
+    }
+    public void validDataSearch(){
+        Highlighter.highlightElement(browser,searchBox);
+        searchBox.isDisplayed();
+        searchBox.click();
+        searchBox.sendKeys("dresses");
+        searchBox_SubmitButton.click();
+        System.out.println("Locate the searchBox and clicked!");
+        searchResultFound.isDisplayed();
+        Highlighter.highlightElement(browser,searchResultFound);
+        String searchedText = searchResultFound.getText();
+        System.out.println(searchedText);
+    }
+
+
+    ///////////////////////////////////////////////////////////
     // EDITORIAL - Module
     @FindBy (xpath = "//*[@id=\"editorial_block_center\"]/h1")
     WebElement bottomHeadingOneBottom;
