@@ -14,15 +14,5 @@ public class TshirtPage {
         PageFactory.initElements(browser,this);
     }
 
-    @FindBy (xpath = "//*[@id=\"block_top_menu\"]/ul/li[3]/a")
-    WebElement menuTShirts;
-    public void clickToMenuTShirt(){
-        Actions actions = new Actions(browser);
-        actions.moveToElement(menuTShirts);
-        actions.build().perform();
-    }
-
-
-
 
 }

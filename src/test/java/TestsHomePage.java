@@ -1,3 +1,4 @@
+import eCommerceGlobalElements.elementsPage;
 import eCommercePages.HomePage;
 import eCommerceSetup.setupPage;
 import org.junit.jupiter.api.DisplayName;
@@ -6,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class TestsHomePage extends setupPage{
     HomePage objHomePage;
+    elementsPage objelementsPage;
 
     /*@Test
     @Tag("HorizontalBar Menu")
@@ -35,11 +37,9 @@ public class TestsHomePage extends setupPage{
     @Test
     @Tag("Main Menu")
     @DisplayName("Hover the MainMenu buttons")
-    void checkMainMenuButtons() throws InterruptedException {
+    void checkMainMenuButtons(){
         objHomePage = new HomePage(browser);
-        objHomePage.navigateToMenuWomen();
-        objHomePage.navigateToMenuDresses();
-        objHomePage.navigateToMenuTShirts();
+        objelementsPage = new elementsPage(browser);
     }
 
 
@@ -47,17 +47,13 @@ public class TestsHomePage extends setupPage{
     @Tag("Searchbox Module")
     @DisplayName("Search box functionality")
     void checkValidSearchData() throws InterruptedException {
-        objHomePage = new HomePage(browser);
-        objHomePage.validDataSearch();
-        Thread.sleep(2000);
+
     }
     @Test
     @Tag("Searchbox Module")
     @DisplayName("Search box functionality")
     void checkInvalidSearchData() throws InterruptedException {
-        objHomePage = new HomePage(browser);
-        objHomePage.invalidDataSearch();
-        Thread.sleep(2000);
+
     }
 
     @Test
@@ -97,7 +93,7 @@ public class TestsHomePage extends setupPage{
         scrollEndPage();
         objHomePage.veryFooterNewsLetterHeading();
         objHomePage.clickNewsLetterInputBar();
-        objHomePage.typingInNewsLetterInputBar();
+        objHomePage.typingInNewsLetterInputBar("Pesho2@mail.bg");
         objHomePage.pressNewsLetterSubmitButton();
         objHomePage.verifySubscribedMessage();
     }

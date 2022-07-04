@@ -20,8 +20,7 @@ public class HomePage{
         PageFactory.initElements(browser,this);
     }
 
-    ///////////////////////////////////////////////////////////
-    // Top horizontal bar: number, contactus menu, signIn menu
+
 
 
 
@@ -140,8 +139,9 @@ public class HomePage{
     }*/
 
 
-    ///////////////////////////////////////////////////////////
-    // EDITORIAL - Module
+    /**
+     * Editorial module:
+     */
     @FindBy (xpath = "//*[@id=\"editorial_block_center\"]/h1")
     WebElement bottomHeadingOneBottom;
     public void veryBottomHeader(){
@@ -165,7 +165,10 @@ public class HomePage{
     }
     ///////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////
-    // CMSinfo - Module
+
+    /**
+     * CMSinfo module:
+     */
     @FindBy(xpath = "//*[@id=\"icon-truck\"]")
     public WebElement comeVisitUsIcon_CMSInfo;
     public void veryComeVisitUsIcon(){
@@ -207,76 +210,13 @@ public class HomePage{
     }
     ///////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////
-    // MainMENU - Pages
 
-
-
-    public void navigateToMenuWomen() throws InterruptedException {
-        Actions actions = new Actions(browser);
-        Thread.sleep(1000);
-        actions.moveToElement(menuWomen);
-        actions.perform();
-        System.out.println("Hover the WomenMENU");
-        Thread.sleep(1000);
-
-        menuWomenTopsTShirts.isDisplayed();
-        actions.moveToElement(menuWomenTopsTShirts);
-        actions.perform();
-        System.out.println("Hover the WomenMENU->Tops-Tshirts");
-        Thread.sleep(1000);
-        menuWomenTopsBlouses.isDisplayed();
-        actions.moveToElement(menuWomenTopsBlouses);
-        actions.perform();
-        System.out.println("Hover the WomenMENU->Tops-Blouses");
-        Thread.sleep(1000);
-
-        actions.moveToElement(menuWomenDressesCasual);
-        actions.perform();
-        System.out.println("Hover the WomenMENU->Dresses-Casual");
-        Thread.sleep(1000);
-        actions.moveToElement(menuWomenDressesEvening);
-        actions.perform();
-        System.out.println("Hover the WomenMENU->Dresses-Evening");
-        Thread.sleep(1000);
-        actions.moveToElement(menuWomenDressesSummer);
-        actions.perform();
-        System.out.println("Hover the WomenMENU->Dresses-Summer");
-        Thread.sleep(1000);
-    }
-
-    public void navigateToMenuDresses() throws InterruptedException {
-        Actions actions = new Actions(browser);
-        Thread.sleep(1000);
-        actions.moveToElement(menuDresses);
-        actions.perform();
-        System.out.println("Hover the DressesMENU");
-        Thread.sleep(1000);
-
-        actions.moveToElement(menuDressesCasual);
-        actions.perform();
-        System.out.println("Hover the DressesMENU->Casual");
-        Thread.sleep(1000);
-        actions.moveToElement(menuDressesEvening);
-        actions.perform();
-        System.out.println("Hover the DressesMENU->Evening");
-        Thread.sleep(1000);
-        actions.moveToElement(menuDressesSummer);
-        actions.perform();
-        System.out.println("Hover the DressesMENU->Summer");
-        Thread.sleep(1000);
-    }
-
-    public void navigateToMenuTShirts() throws InterruptedException {
-        Actions actions = new Actions(browser);
-        Thread.sleep(2000);
-        actions.moveToElement(menuTShirts);
-        actions.perform();
-        System.out.println("Hover the Tshirts Menu");
-        Thread.sleep(2000);
-    }
-    ///////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////
-    // FOOTER - NewsLetter: Heading, InputBar, subscribedButton
+    /**
+     * FOOTER - NewsLetter:
+     * 1. Heading
+     * 2. InputBar
+     * 3. subscribedButton
+     */
     @FindBy (xpath = "//*[@id=\"newsletter_block_left\"]/h4")
     WebElement footerNewsLetterHeading;
     public void veryFooterNewsLetterHeading(){
@@ -289,9 +229,9 @@ public class HomePage{
     public void clickNewsLetterInputBar(){
         newsLetterInputBar.click();
     }
-    public void typingInNewsLetterInputBar(){
+    public void typingInNewsLetterInputBar(String emailData){
         Highlighter.highlightElement(browser,newsLetterInputBar);
-        newsLetterInputBar.sendKeys("kiko1111111111@mail.bg");
+        newsLetterInputBar.sendKeys(emailData);
     }
     @FindBy (xpath = "//*[@id=\"newsletter_block_left\"]/div/form/div/button")
     WebElement newsLetterSubmitButton;
@@ -318,8 +258,16 @@ public class HomePage{
         }
 
     }
+    ///////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
 
-    // FOOTER - Follow us: Facebook, Twiter, Youtube - links
+    /**
+     * FOOTER - Follow us links:
+     * 1. Heading
+     * 2. Facebook link
+     * 3. Twiter link
+     * 4. Youtube link
+     */
     @FindBy (xpath = "//*[@id=\"social_block\"]/h4")
     WebElement footerFollowUsHeading;
     public void veryFooterFollowUsHeading(){
@@ -398,5 +346,7 @@ public class HomePage{
         }
 
     }
+    ////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
 
 }
