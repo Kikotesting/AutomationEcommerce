@@ -6,18 +6,6 @@ import org.junit.jupiter.api.Test;
 public class TestsHomePage extends setupPage{
     HomePage objHomePage;
 
-    /*@Test
-    @Tag("HorizontalBar Menu")
-    @DisplayName("Verified the Call us number, ContactUs button and page, SignIn button and page")
-    void checkHorizontalBarMenu() throws InterruptedException {
-        objHomePage.checkSignInMenuText();
-        objHomePage.clickSignInMenu();
-        Thread.sleep(2000);
-        scrollToWebElement(objHomePage.scrollToSeeOverviewSignIn);
-        objHomePage.overViewSignInMenu();
-        Thread.sleep(2000);
-    }*/
-
     /**
      * Horizontal Navigation tests:
      * 1. CallUs Number
@@ -29,6 +17,7 @@ public class TestsHomePage extends setupPage{
     void veryCallUsNumberHorizontalNav(){
         objHomePage = new HomePage(browser);
         objHomePage.checkCallUsNumberText_horizontalNav();
+        System.out.println("Call number is checked!");
     }
     @Test
     @Tag("Horizontal Navigation")

@@ -8,7 +8,7 @@ public class TestsSignInPage extends setupPage {
 
     @Test
     @Tag("SignIn Overview")
-    void verySignInOverviewPageElements() throws InterruptedException {
+    void verySignInOverviewPageElements_TC1() throws InterruptedException {
         objSignInPage = new SignInPage(browser);
         objSignInPage.overviewHeadElements_SignInPage();
         objSignInPage.overviewCreate_SignInPage();

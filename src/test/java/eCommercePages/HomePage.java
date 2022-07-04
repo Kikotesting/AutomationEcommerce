@@ -53,48 +53,8 @@ public class HomePage{
         contactUsMenu_horizontalNav.click();
         System.out.println("Click ContactUs menu");
     }
-/*    public void checkContactUsMenu_horizontalNav(){
-        customerServiceHeading_ContactUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,customerServiceHeading_ContactUsPage);
-        Thread.sleep(1000);
-        messageForm_ContactUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,messageForm_ContactUsPage);
-        Thread.sleep(1000);
-        emailField_ContactUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,emailField_ContactUsPage);
-        Thread.sleep(1000);
-        orderReferenceField_ContactUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,orderReferenceField_ContactUsPage);
-        Thread.sleep(1000);
-        textArea_ContactUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,textArea_ContactUsPage);
-        Thread.sleep(1000);
-
-        subjectSelectingField_ContactUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,subjectSelectingField_ContactUsPage);
-        subjectSelectingField_ContactUsPage.click();
-        Select select = new Select(subjectSelectingField_ContactUsPage);
-        select.selectByValue("2");
-        Thread.sleep(1000);
-        subjectSelectingField_ContactUsPage.click();
-        select.selectByValue("1");
-        Thread.sleep(1000);
-        subjectSelectingField_ContactUsPage.click();
-        select.selectByValue("0");
-        Thread.sleep(1000);
-        subjectSelectingField_ContactUsPage.click();
-
-        uploaderField_ContactUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,uploaderField_ContactUsPage);
-        Thread.sleep(1000);
-
-        uploaderAttachFileButton_ContactUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,uploaderAttachFileButton_ContactUsPage);
-        Thread.sleep(1000);
-    }*/
     @FindBy (className = "login")
     WebElement signInMenu_HorizontalNav;
-
     public void clickSignInMenu_HorizontalNav(){
         signInMenu_HorizontalNav.isDisplayed();
         Highlighter.highlightElement(browser,signInMenu_HorizontalNav);

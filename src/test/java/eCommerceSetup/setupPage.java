@@ -55,18 +55,5 @@ public class setupPage {
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
     }
 
-    // SELECT elements
-    public void selectElement(WebElement element){
-        Select select = new Select(element);
-    }
-
-    // Wait for visibility of an element
-    public void waitForVisibility(WebElement element){
-        WebDriverWait wait = new WebDriverWait(browser, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(element));
-    }
-
-
-
 
 }
