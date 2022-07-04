@@ -22,10 +22,11 @@ public class ContactUsPage {
     WebElement heading_ContactUsPage;
     @FindBy(xpath = "//*[@id=\"id_contact\"]")
     WebElement subjectSelectingField_ContactUsPage;
-    @FindBy(xpath = "//*[@id=\"desc_contact1\"]")
-    WebElement subjectSelectWebmaster_ContactUsPage;
     @FindBy(xpath = "//*[@id=\"desc_contact2\"]")
-    WebElement subjectSelectCustomService_ContactUsPage;
+    WebElement paragraphCustomerService_ContactUsPage;
+    @FindBy(xpath = "//*[@id=\"desc_contact1\"]")
+    WebElement paragraphWebMaster_ContactUsPage;
+
     @FindBy(xpath = "//*[@id=\"email\"]")
     WebElement emailField_ContactUsPage;
     @FindBy(xpath = "//*[@id=\"id_order\"]")
@@ -35,7 +36,16 @@ public class ContactUsPage {
     @FindBy(xpath = "//*[@id=\"submitMessage\"]/span/i")
     WebElement sendSubmitButton_ContactUsPage;
     @FindBy(xpath = "//*[@id=\"message\"]")
-    WebElement textAreaMessage_ContactUsPage;
+    WebElement textMessage_ContactUsPage;
+    @FindBy(xpath = "//*[@id=\"center_column\"]/p")
+    WebElement checkedTextMessageAfter_ContactUsPage;
+    @FindBy(xpath = "//*[@id=\"center_column\"]/div/p")
+    WebElement checkedErrorTextAfter_ContactUsPage;
+
+    @FindBy(xpath = "//*[@id=\"center_column\"]/form/fieldset/h3")
+    public WebElement scrollToForm_ContactUsPage;
+
+
 
     public void OverviewHeadElements_ContactUsPage() throws InterruptedException {
         breadcrumb_ContactUsPage.isDisplayed();
@@ -59,46 +69,65 @@ public class ContactUsPage {
         sendSubmitButton_ContactUsPage.isDisplayed();
         Highlighter.highlightElement(browser,sendSubmitButton_ContactUsPage);
         Thread.sleep(1000);
-        textAreaMessage_ContactUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,textAreaMessage_ContactUsPage);
+        textMessage_ContactUsPage.isDisplayed();
+        Highlighter.highlightElement(browser,textMessage_ContactUsPage);
         Thread.sleep(1000);
         System.out.println("ContactUs Page elements are checked!");
     }
-    public void SubjectSelect_ContactUsPage() throws InterruptedException {
+    public void SelectingCustomerService_ContactUsPage() throws InterruptedException {
+        subjectSelectingField_ContactUsPage.isDisplayed();
+        Highlighter.highlightElement(browser,subjectSelectingField_ContactUsPage);
+        subjectSelectingField_ContactUsPage.click();
+        System.out.println("Click subjectSelecting");
+        Thread.sleep(1000);
+        Select select = new Select(subjectSelectingField_ContactUsPage);
+        select.selectByValue("2");
+        subjectSelectingField_ContactUsPage.click();
+        Thread.sleep(2000);
+        System.out.println("Select CustomService");
+
+    }
+    public void SelectingWebMaster_ContactUsPage() throws InterruptedException {
         subjectSelectingField_ContactUsPage.isDisplayed();
         Highlighter.highlightElement(browser,subjectSelectingField_ContactUsPage);
         subjectSelectingField_ContactUsPage.click();
         System.out.println("Click subjectSelecting");
 
         Select select = new Select(subjectSelectingField_ContactUsPage);
-        select.selectByValue("2");
-        subjectSelectCustomService_ContactUsPage.isDisplayed();
-        Assertions.assertTrue(subjectSelectCustomService_ContactUsPage.isDisplayed());
-        Assertions.assertTrue(subjectSelectCustomService_ContactUsPage.isSelected());
-        System.out.println("Select CustomService");
-        Thread.sleep(1000);
-
-        subjectSelectingField_ContactUsPage.click();
         select.selectByValue("1");
-        Assertions.assertTrue(subjectSelectWebmaster_ContactUsPage.isDisplayed());
-        Assertions.assertTrue(subjectSelectWebmaster_ContactUsPage.isSelected());
-        System.out.println("Select Webmaster");
-        Thread.sleep(1000);
+        subjectSelectingField_ContactUsPage.click();
+        Thread.sleep(2000);
+        System.out.println("Select WebMaster");
 
-        subjectSelectingField_ContactUsPage.click();
-        select.selectByValue("0");
-        Assertions.assertTrue(subjectSelectingField_ContactUsPage.isDisplayed());
-        Assertions.assertTrue(subjectSelectingField_ContactUsPage.isSelected());
-        System.out.println("Select Default");
-        Thread.sleep(1000);
-        subjectSelectingField_ContactUsPage.click();
-        System.out.println("Finish!");
     }
-    public void TypingTextMessage_ContactUsPage(){
-        Assertions.assertTrue(textAreaMessage_ContactUsPage.isDisplayed());
-        textAreaMessage_ContactUsPage.click();
-        textAreaMessage_ContactUsPage.sendKeys("Welcome\nI am user with knowledge!");
+    public void SetEmail_ContactUsPage(String text){
+        Assertions.assertTrue(emailField_ContactUsPage.isDisplayed());
+        emailField_ContactUsPage.click();
+        System.out.println("text: " + text);
+        emailField_ContactUsPage.sendKeys(text);
+    }
+    public void SetMessage_ContactUsPage(String text){
+        Assertions.assertTrue(textMessage_ContactUsPage.isDisplayed());
+        textMessage_ContactUsPage.click();
+        System.out.println("text: " + text);
+        textMessage_ContactUsPage.sendKeys(text);
+    }
+    public void ClickSendSubmitButton_ContactUsPage(){
         sendSubmitButton_ContactUsPage.click();
+    }
+    public void TextMessageAfter_ContactUsPage(){
+        Assertions.assertTrue(checkedTextMessageAfter_ContactUsPage.isDisplayed());
+        String actualMessage = checkedTextMessageAfter_ContactUsPage.getText();
+        Highlighter.highlightElement(browser,checkedTextMessageAfter_ContactUsPage);
+        Assertions.assertEquals("Your message has been successfully sent to our team.",actualMessage);
+        System.out.println("Successfully message sent!");
+    }
+    public void ErrorMessageAfter_ContactUsPage(){
+        Assertions.assertTrue(checkedErrorTextAfter_ContactUsPage.isDisplayed());
+        String actualMessage = checkedErrorTextAfter_ContactUsPage.getText();
+        Highlighter.highlightElement(browser,checkedErrorTextAfter_ContactUsPage);
+        Assertions.assertEquals("There is 1 error",actualMessage);
+        System.out.println("Error!");
     }
 
 }

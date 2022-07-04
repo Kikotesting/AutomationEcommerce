@@ -4,10 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 
@@ -20,21 +18,13 @@ public class HomePage{
         PageFactory.initElements(browser,this);
     }
 
-    /*public void overViewContactUsMenu() throws InterruptedException {
 
-
-*//*        sendSubmitButton_ContactUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,sendSubmitButton_ContactUsPage);
-        Thread.sleep(1000);
-        sendSubmitButton_ContactUsPage.click();*//*
-
-        System.out.println("ContactUsMenu_Overview page is complete!");
-    }*/
-
-    /*public void overViewSignInMenu() throws InterruptedException {
-
-    }*/
-
+    /**
+     * Horizontal Navigation Bar
+     * 1. CallUsNow Number
+     * 2. ContactUs Menu
+     * 3. SignIn Menu
+     */
     @FindBy(xpath = "//*[@id=\"header\"]/div[2]/div/div/nav/span")
     WebElement horizontalNavCallUsNowNumber;
     public void checkCallUsNumberText_horizontalNav(){
@@ -44,7 +34,6 @@ public class HomePage{
         Assertions.assertEquals("Call us now: 0123-456-789", getCallUsNumber);
         System.out.println("Call number is visible!");
     }
-
     @FindBy (id = "contact-link")
     WebElement contactUsMenu_horizontalNav;
     public void clickContactUsMenu_horizontalNav(){

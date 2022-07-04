@@ -14,14 +14,14 @@ public class TestsHomePage extends setupPage{
      */
     @Test
     @Tag("Horizontal Navigation")
-    void veryCallUsNumberHorizontalNav(){
+    void veryCallUsNumberHorizontalNav_TC1(){
         objHomePage = new HomePage(browser);
         objHomePage.checkCallUsNumberText_horizontalNav();
         System.out.println("Call number is checked!");
     }
     @Test
     @Tag("Horizontal Navigation")
-    void veryContactUsMenuHorizontalNav() throws InterruptedException {
+    void veryContactUsMenuHorizontalNav_TC2() throws InterruptedException {
         objHomePage = new HomePage(browser);
         objHomePage.clickContactUsMenu_horizontalNav();
         Thread.sleep(2000);
@@ -30,7 +30,7 @@ public class TestsHomePage extends setupPage{
     }
     @Test
     @Tag("Horizontal Navigation")
-    void verySignInMenuHorizontalNav() throws InterruptedException {
+    void verySignInMenuHorizontalNav_TC3() throws InterruptedException {
         objHomePage = new HomePage(browser);
         objHomePage.clickSignInMenu_HorizontalNav();
         Thread.sleep(2000);
@@ -50,7 +50,7 @@ public class TestsHomePage extends setupPage{
      */
     @Test
     @Tag("SearchBox Module")
-    void enterValidDataInSearchBox() {
+    void enterValidDataInSearchBox_TC1() {
         objHomePage = new HomePage(browser);
 
         objHomePage.clickField_SearchBox();
@@ -63,7 +63,7 @@ public class TestsHomePage extends setupPage{
     }
     @Test
     @Tag("SearchBox Module")
-    void enterInvalidDataInSearchBox() {
+    void enterInvalidDataInSearchBox_TC2() {
         objHomePage = new HomePage(browser);
         objHomePage.clickField_SearchBox();
         System.out.println("Searchbar click");
@@ -159,14 +159,13 @@ public class TestsHomePage extends setupPage{
     @Test
     @Tag("Footer elements - NewsLetter module 2")
     void checkFooterNewsLetter_SocialModule_TC2(){
-        // Create object from HomePage
         objHomePage = new HomePage(browser);
         scrollEndPage();
         objHomePage.veryFooterFollowUsHeading();
     }
     @Test
     @Tag("Footer elements - FollowUs module")
-    void checkFooterFollowUs_Module_TC1() throws InterruptedException {
+    void checkFooterFollowUs_Module_TC3() throws InterruptedException {
         objHomePage = new HomePage(browser);
         objHomePage.veryLinkFooterFacebook();
         Thread.sleep(1000);
