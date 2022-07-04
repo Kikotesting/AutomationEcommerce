@@ -269,21 +269,21 @@ public class HomePage{
      * 4. Youtube link
      */
     @FindBy (xpath = "//*[@id=\"social_block\"]/h4")
-    WebElement footerFollowUsHeading;
+    WebElement footerHeading_FollowUs;
     public void veryFooterFollowUsHeading(){
-        Highlighter.highlightElement(browser, footerFollowUsHeading);
-        String  getFooterFollowUsHeading = footerFollowUsHeading.getText();
+        Highlighter.highlightElement(browser, footerHeading_FollowUs);
+        String  getFooterFollowUsHeading = footerHeading_FollowUs.getText();
         Assertions.assertEquals("Follow us", getFooterFollowUsHeading);
     }
     @FindBy (xpath = "//*[@id=\"social_block\"]/ul/li[1]/a")
-    WebElement footerLinkFacebook;
+    WebElement footerFacebookLink_FollowUs;
     public void veryLinkFooterFacebook() throws InterruptedException {
-        footerLinkFacebook.isDisplayed();
-        Highlighter.highlightElement(browser,footerLinkFacebook);
+        footerFacebookLink_FollowUs.isDisplayed();
+        Highlighter.highlightElement(browser,footerFacebookLink_FollowUs);
         if (browser.getPageSource().contains("https://www.facebook.com/groups/525066904174158/")){
             // method Keys.chord
             String clicklinkFacebook = Keys.chord(Keys.CONTROL, Keys.ENTER);
-            footerLinkFacebook.sendKeys(clicklinkFacebook);
+            footerFacebookLink_FollowUs.sendKeys(clicklinkFacebook);
             //List with the views
             ArrayList<String> facebookView = new ArrayList<>(browser.getWindowHandles());
             //Switch to open tab
@@ -299,14 +299,14 @@ public class HomePage{
         }
     }
     @FindBy (xpath = "//*[@id=\"social_block\"]/ul/li[2]/a")
-    WebElement footerLinkTwiter;
+    WebElement ooterTwitterLink_FollowUs;
     public void veryLinkFooterTwitter() throws InterruptedException {
-        footerLinkTwiter.isDisplayed();
-        Highlighter.highlightElement(browser,footerLinkTwiter);
+        ooterTwitterLink_FollowUs.isDisplayed();
+        Highlighter.highlightElement(browser,ooterTwitterLink_FollowUs);
         if (browser.getPageSource().contains("https://twitter.com/seleniumfrmwrk")){
             // method Keys.chord
             String clicklinkTwiter = Keys.chord(Keys.CONTROL, Keys.ENTER);
-            footerLinkTwiter.sendKeys(clicklinkTwiter);
+            ooterTwitterLink_FollowUs.sendKeys(clicklinkTwiter);
             //List with the views
             ArrayList<String> twiterView = new ArrayList<>(browser.getWindowHandles());
             //Switch to open tab
@@ -323,14 +323,14 @@ public class HomePage{
 
     }
     @FindBy (xpath = "//*[@id=\"social_block\"]/ul/li[3]/a")
-    WebElement footerLinkYouTube;
+    WebElement footerYouTubeLink_FollowUs;
     public void veryLinkFooterYouTube() throws InterruptedException {
-        footerLinkYouTube.isDisplayed();
-        Highlighter.highlightElement(browser,footerLinkYouTube);
+        footerYouTubeLink_FollowUs.isDisplayed();
+        Highlighter.highlightElement(browser,footerYouTubeLink_FollowUs);
         if (browser.getPageSource().contains("https://www.youtube.com/channel/UCHl59sI3SRjQ-qPcTrgt0tA")){
             // method Keys.chord
             String clicklinkTwiter = Keys.chord(Keys.CONTROL, Keys.ENTER);
-            footerLinkYouTube.sendKeys(clicklinkTwiter);
+            footerYouTubeLink_FollowUs.sendKeys(clicklinkTwiter);
             //List with the views
             ArrayList<String> YoutubeView = new ArrayList<>(browser.getWindowHandles());
             //Switch to open tab
@@ -348,5 +348,35 @@ public class HomePage{
     }
     ////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////
+
+    /**
+     * FOOTER - Store information:
+     * 1. Address
+     * 2. Call us now
+     * 3. Email
+     */
+    @FindBy (xpath = "//*[@id=\"block_contact_infos\"]/div/ul/li[1]")
+    WebElement footerAddress_StoreInfo;
+    public void veryFooterAddress_StoreInfo(){
+        Highlighter.highlightElement(browser, footerAddress_StoreInfo);
+        String  getFooterNewsLetterHeading = footerAddress_StoreInfo.getText();
+        Assertions.assertEquals("Selenium Framework, Research Triangle Park, North Carolina, USA", getFooterNewsLetterHeading);
+    }
+    @FindBy (xpath = "//*[@id=\"block_contact_infos\"]/div/ul/li[2]")
+    WebElement footerCallUsNow_StoreInfo;
+    public void veryFooterCallUsNow_StoreInfo(){
+        Highlighter.highlightElement(browser, footerCallUsNow_StoreInfo);
+        String  getFooterNewsLetterHeading = footerCallUsNow_StoreInfo.getText();
+        Assertions.assertEquals("Call us now: (347) 466-7432", getFooterNewsLetterHeading);
+    }
+
+    @FindBy (xpath = "//*[@id=\"block_contact_infos\"]/div/ul/li[3]")
+    WebElement footerEmail_StoreInfo;
+    public void veryFooterEmail_StoreInfo(){
+        Highlighter.highlightElement(browser, footerEmail_StoreInfo);
+        String  getFooterNewsLetterHeading = footerEmail_StoreInfo.getText();
+        Assertions.assertEquals("Email: support@seleniumframework.com", getFooterNewsLetterHeading);
+    }
+
 
 }

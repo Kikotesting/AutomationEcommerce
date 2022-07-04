@@ -40,6 +40,8 @@ public class TestsHomePage extends setupPage{
     void checkMainMenuButtons(){
         objHomePage = new HomePage(browser);
         objelementsPage = new elementsPage(browser);
+
+
     }
 
 
@@ -71,22 +73,26 @@ public class TestsHomePage extends setupPage{
 
 
     @Test
-    @Tag("Bottom Page Text")
-    @DisplayName("Verified the headings and paragraph on HomePage")
-    void checkBottomHeadingsAndParagraph(){
+    @Tag("Editorial module - bottom text")
+    void checkBottomHeadingsAndParagraph_TC1(){
         // Create object from HomePage
         objHomePage = new HomePage(browser);
+
         scrollEndPage();
+        System.out.println("Scrolling to the End of the page!");
         objHomePage.veryBottomHeader();
         objHomePage.veryBottomHeaderTwo();
         objHomePage.veryBottomParagraph();
     }
 
 
-
+    /**
+     * Footer elements tests:
+     * 1. NewsLetter modules
+     * 2. FollowUs modules
+     */
     @Test
-    @Tag("Footer elements")
-    @DisplayName("NewsLetter module")
+    @Tag("Footer elements - NewsLetter module")
     void checkFooterNewsLetter_SocialModule_TC1(){
         // Create object from HomePage
         objHomePage = new HomePage(browser);
@@ -97,21 +103,17 @@ public class TestsHomePage extends setupPage{
         objHomePage.pressNewsLetterSubmitButton();
         objHomePage.verifySubscribedMessage();
     }
-
     @Test
-    @Tag("Footer elements")
-    @DisplayName("NewsLetter module 2")
+    @Tag("Footer elements - NewsLetter module 2")
     void checkFooterNewsLetter_SocialModule_TC2(){
         // Create object from HomePage
         objHomePage = new HomePage(browser);
         scrollEndPage();
         objHomePage.veryFooterFollowUsHeading();
     }
-
     @Test
-    @Tag("Footer elements")
-    @DisplayName("FollowUs module")
-    void checkFooterFollowUs_Module_TC3() throws InterruptedException {
+    @Tag("Footer elements - FollowUs module")
+    void checkFooterFollowUs_Module_TC1() throws InterruptedException {
         objHomePage = new HomePage(browser);
         objHomePage.veryLinkFooterFacebook();
         Thread.sleep(2000);

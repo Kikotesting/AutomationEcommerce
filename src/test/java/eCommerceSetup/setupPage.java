@@ -17,6 +17,7 @@ import java.time.Duration;
 public class setupPage {
 
     public WebDriver browser;
+    public Actions actions;
 
     // Manage web-driver browser version
     @BeforeAll
