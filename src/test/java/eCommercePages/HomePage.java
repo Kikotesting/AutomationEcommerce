@@ -20,12 +20,40 @@ public class HomePage{
         PageFactory.initElements(browser,this);
     }
 
-
-
-
-
     /*public void overViewContactUsMenu() throws InterruptedException {
-        Thread.sleep(2000);
+
+
+*//*        sendSubmitButton_ContactUsPage.isDisplayed();
+        Highlighter.highlightElement(browser,sendSubmitButton_ContactUsPage);
+        Thread.sleep(1000);
+        sendSubmitButton_ContactUsPage.click();*//*
+
+        System.out.println("ContactUsMenu_Overview page is complete!");
+    }*/
+
+    /*public void overViewSignInMenu() throws InterruptedException {
+
+    }*/
+
+    @FindBy(xpath = "//*[@id=\"header\"]/div[2]/div/div/nav/span")
+    WebElement horizontalNavCallUsNowNumber;
+    public void checkCallUsNumberText_horizontalNav(){
+        horizontalNavCallUsNowNumber.isDisplayed();
+        String  getCallUsNumber = horizontalNavCallUsNowNumber.getText();
+        Highlighter.highlightElement(browser, horizontalNavCallUsNowNumber);
+        Assertions.assertEquals("Call us now: 0123-456-789", getCallUsNumber);
+        System.out.println("Call number is visible!");
+    }
+
+    @FindBy (id = "contact-link")
+    WebElement contactUsMenu_horizontalNav;
+    public void clickContactUsMenu_horizontalNav(){
+        contactUsMenu_horizontalNav.isDisplayed();
+        Highlighter.highlightElement(browser,contactUsMenu_horizontalNav);
+        contactUsMenu_horizontalNav.click();
+        System.out.println("Click ContactUs menu");
+    }
+/*    public void checkContactUsMenu_horizontalNav(){
         customerServiceHeading_ContactUsPage.isDisplayed();
         Highlighter.highlightElement(browser,customerServiceHeading_ContactUsPage);
         Thread.sleep(1000);
@@ -63,84 +91,72 @@ public class HomePage{
         uploaderAttachFileButton_ContactUsPage.isDisplayed();
         Highlighter.highlightElement(browser,uploaderAttachFileButton_ContactUsPage);
         Thread.sleep(1000);
-
-*//*        sendSubmitButton_ContactUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,sendSubmitButton_ContactUsPage);
-        Thread.sleep(1000);
-        sendSubmitButton_ContactUsPage.click();*//*
-
-        System.out.println("ContactUsMenu_Overview page is complete!");
     }*/
+    @FindBy (className = "login")
+    WebElement signInMenu_HorizontalNav;
 
-    /*public void overViewSignInMenu() throws InterruptedException {
-        Authentication_SignInMenu.isDisplayed();
-        Highlighter.highlightElement(browser,Authentication_SignInMenu);
-        Thread.sleep(1000);
-        breadcrumb_SignInMenu.isDisplayed();
-        Highlighter.highlightElement(browser,breadcrumb_SignInMenu);
-        Thread.sleep(1000);
-        createAccountSection_SignInMenu.isDisplayed();
-        Highlighter.highlightElement(browser,createAccountSection_SignInMenu);
-        Thread.sleep(1000);
-        emailAddress_SignInMenu.isDisplayed();
-        Highlighter.highlightElement(browser,emailAddress_SignInMenu);
-        Thread.sleep(1000);
-        createAnAccountButton_SignInMenu.isDisplayed();
-        Highlighter.highlightElement(browser,createAnAccountButton_SignInMenu);
-        Thread.sleep(1000);
-        alreadyRegistered_SignInMenu.isDisplayed();
-        Highlighter.highlightElement(browser,alreadyRegistered_SignInMenu);
-        Thread.sleep(1000);
-        emailAddressField_alreadyRegistered_SignInMenu.isDisplayed();
-        Highlighter.highlightElement(browser,emailAddressField_alreadyRegistered_SignInMenu);
-        Thread.sleep(1000);
-        passwordField_alreadyRegistered_SignInMenu.isDisplayed();
-        Highlighter.highlightElement(browser,passwordField_alreadyRegistered_SignInMenu);
-        Thread.sleep(1000);
-        signInSubmitButton_SignInMenu.isDisplayed();
-        Highlighter.highlightElement(browser,signInSubmitButton_SignInMenu);
-        Thread.sleep(1000);
-        forgotPassword_ContactUsPage.isDisplayed();
-        Highlighter.highlightElement(browser,forgotPassword_ContactUsPage);
-        Thread.sleep(1000);
-        System.out.println("SignInMenu_Overview page is complete!");
-    }*/
-    ///////////////////////////////////////////////////////////
-
-    ///////////////////////////////////////////////////////////
-    // SearchBox - Module
-
-    @FindBy(xpath = "//*[@id=\"center_column\"]/p")
-    WebElement searchTextResult;
-    @FindBy(xpath = "//*[@id=\"center_column\"]/h1/span[2]")
-    WebElement searchResultFound;
-/*    public void invalidDataSearch(){
-        Highlighter.highlightElement(browser,searchBox);
-        searchBox.isDisplayed();
-        searchBox.click();
-        searchBox.sendKeys("Kiko");
-        searchBox_SubmitButton.click();
-        String searchedText = searchTextResult.getText();
-        Highlighter.highlightElement(browser,searchTextResult);
-        Assertions.assertEquals("No results were found for your search \"Kiko\"",searchedText);
-        System.out.println("No data for this search!");
+    public void clickSignInMenu_HorizontalNav(){
+        signInMenu_HorizontalNav.isDisplayed();
+        Highlighter.highlightElement(browser,signInMenu_HorizontalNav);
+        signInMenu_HorizontalNav.click();
+        System.out.println("Click SignIn menu");
     }
-    public void validDataSearch(){
-        Highlighter.highlightElement(browser,searchBox);
-        searchBox.isDisplayed();
-        searchBox.click();
-        searchBox.sendKeys("dresses");
-        searchBox_SubmitButton.click();
-        System.out.println("Locate the searchBox and clicked!");
-        searchResultFound.isDisplayed();
-        Highlighter.highlightElement(browser,searchResultFound);
-        String searchedText = searchResultFound.getText();
-        System.out.println(searchedText);
-    }*/
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
 
 
     /**
-     * Editorial module:
+     * Search box field elements
+     * 1. Search box field
+     * 2. Typing Valida Data
+     * 3. Typing Invalid Data
+     * 4. Click Search button
+     */
+    @FindBy(id = "search_query_top")
+    public WebElement searchBox;
+    @FindBy(name = "submit_search")
+    WebElement searchBox_SubmitButton;
+    @FindBy(xpath = "//*[@id=\"center_column\"]/h1/span[2]")
+    WebElement searchResultFound;
+    @FindBy(xpath = "//*[@id=\"center_column\"]/p")
+    WebElement searchResultNotFound;
+    public void clickField_SearchBox(){
+        searchBox.isDisplayed();
+        Highlighter.highlightElement(browser,searchBox);
+        searchBox.click();
+        System.out.println("Click SearchBox field");
+    }
+    public void enterValidData_SearchBox(String validText){
+        Highlighter.highlightElement(browser,searchBox);
+        searchBox.clear();
+        searchBox.sendKeys(validText);
+    }
+    public void enterInvalidData_SearchBox(String invalidText){
+        Highlighter.highlightElement(browser,searchBox);
+        searchBox.clear();
+        searchBox.sendKeys(invalidText);
+    }
+    public void clickSubmitButton_SearchBox(){
+        searchBox_SubmitButton.click();
+    }
+    public void searchResultFound_SearchBox(){
+        Highlighter.highlightElement(browser,searchResultFound);
+        searchResultFound.isDisplayed();
+        String searchedText = searchResultFound.getText();
+        System.out.println(searchedText);
+    }
+    public void searchResultNotFound_SearchBox(){
+        Highlighter.highlightElement(browser,searchResultNotFound);
+        searchResultNotFound.isDisplayed();
+        String actualSearchedResult = searchResultNotFound.getText();
+        Assertions.assertEquals("No results were found for your search \"purko\"",actualSearchedResult);
+        System.out.println("No data for this search!");
+    }
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * EDITORIAL module:
      */
     @FindBy (xpath = "//*[@id=\"editorial_block_center\"]/h1")
     WebElement bottomHeadingOneBottom;
@@ -167,46 +183,127 @@ public class HomePage{
     ///////////////////////////////////////////////////////////
 
     /**
-     * CMSinfo module:
+     * CMSinfo module Two:
+     * 1. Come Visit Us
+     * 2. Call Us
+     * 3. How to pay
      */
+    // Come to Visit US
     @FindBy(xpath = "//*[@id=\"icon-truck\"]")
     public WebElement comeVisitUsIcon_CMSInfo;
-    public void veryComeVisitUsIcon(){
+    public void veryComeVisitUsIcon_CMSInfo(){
         Highlighter.highlightElement(browser, comeVisitUsIcon_CMSInfo);
         comeVisitUsIcon_CMSInfo.isDisplayed();
         System.out.println("Icon is visible");
     }
     @FindBy(xpath = "//*[@id=\"cmsinfo_block\"]/div[1]/ul/li[1]/div/h3")
-    WebElement ComeVisitUsHeading_CMSInfo;
-    public void veryComeVisitUsHeading(){
-        Highlighter.highlightElement(browser, ComeVisitUsHeading_CMSInfo);
-        String  getComeVisitUsHeading = ComeVisitUsHeading_CMSInfo.getText();
+    WebElement comeVisitUsHeading_CMSInfo;
+    public void veryComeVisitUsHeading_CMSInfo(){
+        Highlighter.highlightElement(browser, comeVisitUsHeading_CMSInfo);
+        String  getComeVisitUsHeading = comeVisitUsHeading_CMSInfo.getText();
         Assertions.assertEquals("Come Visit Us", getComeVisitUsHeading);
         System.out.println("Heading is correct and visible!");
     }
     @FindBy(xpath = "//*[@id=\"cmsinfo_block\"]/div[1]/ul/li[1]/div/p")
-    WebElement ComeVisitUsParagraph_CMSInfo;
-    public void veryComeVisitUsParagraph(){
-        Highlighter.highlightElement(browser, ComeVisitUsParagraph_CMSInfo);
-        String  getComeVisitUsParagraph = ComeVisitUsParagraph_CMSInfo.getText();
+    WebElement comeVisitUsParagraph_CMSInfo;
+    public void veryComeVisitUsParagraph_CMSInfo(){
+        Highlighter.highlightElement(browser, comeVisitUsParagraph_CMSInfo);
+        String  getComeVisitUsParagraph = comeVisitUsParagraph_CMSInfo.getText();
         Assertions.assertEquals("We are located in Research Triangle Park, North Carolina, USA", getComeVisitUsParagraph);
         System.out.println("Paragraph is correct and visible!");
     }
+    // Call Us
+    @FindBy(xpath = "//*[@id=\"icon-phone\"]")
+    public WebElement callUsIcon_CMSInfo;
+    public void veryCallUsIcon_CMSInfo(){
+        Highlighter.highlightElement(browser, callUsIcon_CMSInfo);
+        callUsIcon_CMSInfo.isDisplayed();
+        System.out.println("Icon is visible");
+    }
+    @FindBy(xpath = "//*[@id=\"cmsinfo_block\"]/div[1]/ul/li[2]/div/h3")
+    public WebElement callUsHeading_CMSInfo;
+    public void veryCallUsHeading_CMSInfo(){
+        Highlighter.highlightElement(browser, callUsHeading_CMSInfo);
+        callUsHeading_CMSInfo.isDisplayed();
+        System.out.println("Heading is correct and visible!");
+    }
+    @FindBy(xpath = "//*[@id=\"cmsinfo_block\"]/div[1]/ul/li[2]/div/p")
+    WebElement callUsParagraph_CMSInfo;
+    public void veryCallUsParagraph_CMSInfo(){
+        Highlighter.highlightElement(browser, callUsParagraph_CMSInfo);
+        String  getComeVisitUsParagraph = callUsParagraph_CMSInfo.getText();
+        Assertions.assertEquals("We appreciate your call. Please visit Selenium Framework", getComeVisitUsParagraph);
+        System.out.println("Paragraph is correct and visible!");
+    }
+    @FindBy(xpath = "//*[@id=\"cmsinfo_block\"]/div[1]/ul/li[2]/div/p/a")
+    WebElement callUsParagraphButton_CMSInfo;
+    public void clickCallUsParagraphButton_CMSInfo() throws InterruptedException {
+        Highlighter.highlightElement(browser, callUsParagraphButton_CMSInfo);
+        callUsParagraphButton_CMSInfo.click();
+        Thread.sleep(2000);
+        System.out.println("Paragraph button is clicked!");
+    }
+
+    // How to Pay Dues
+    @FindBy(xpath = "//*[@id=\"icon-credit-card\"]")
+    public WebElement howToPayDuesIcon_CMSInfo;
+    public void veryHowToPayDuesIconCMSInfo(){
+        howToPayDuesIcon_CMSInfo.isDisplayed();
+        Highlighter.highlightElement(browser, howToPayDuesIcon_CMSInfo);
+        howToPayDuesIcon_CMSInfo.isDisplayed();
+        System.out.println("Icon is visible");
+    }
+    @FindBy(xpath = "//*[@id=\"cmsinfo_block\"]/div[1]/ul/li[3]/div/h3")
+    WebElement howToPayDuesHeading_CMSInfo;
+    public void veryHowToPayDuesHeading_CMSInfo(){
+        Highlighter.highlightElement(browser, howToPayDuesHeading_CMSInfo);
+        String  getHowToPayDuesHeading_CMSInfo = howToPayDuesHeading_CMSInfo.getText();
+        Assertions.assertEquals("How to Pay dues", getHowToPayDuesHeading_CMSInfo);
+        System.out.println("Heading is correct and visible!");
+    }
+    @FindBy(xpath = "//*[@id=\"cmsinfo_block\"]/div[1]/ul/li[3]/div/p")
+    WebElement howToPayDuesParagraph_CMSInfo;
+    public void veryHowToPayDuesParagraph_CMSInfo(){
+        Highlighter.highlightElement(browser, howToPayDuesParagraph_CMSInfo);
+        String  getHowToPayDuesParagraph_CMSInfo = howToPayDuesParagraph_CMSInfo.getText();
+        Assertions.assertEquals("You can pay us by calling or use our online pay channels", getHowToPayDuesParagraph_CMSInfo);
+        System.out.println("Paragraph is correct and visible!");
+    }
+    ///////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////
+
+    /**
+     * CMS Info module Three:
+     * 1. Heading 1
+     * 2. Heading 2 bold
+     * 3. Paragraph
+     */
     @FindBy (xpath = "//*[@id=\"cmsinfo_block\"]/div[2]/h3")
     WebElement customBlockHeading_CMSInfo;
+    public void veryCustomBlockHeading_CMSInfo(){
+        customBlockHeading_CMSInfo.isDisplayed();
+        Highlighter.highlightElement(browser, customBlockHeading_CMSInfo);
+        String  getCustomBlockHeading_CMSInfo = customBlockHeading_CMSInfo.getText();
+        Assertions.assertEquals("Custom Block", getCustomBlockHeading_CMSInfo);
+        System.out.println("Bold Heading is correct and visible!");
+    }
     @FindBy (xpath = "//*[@id=\"cmsinfo_block\"]/div[2]/p[1]/strong")
-    WebElement customBlockHeadingStrong_CMSInfo;
+    WebElement customBlockHeadingBold_CMSInfo;
+    public void veryCustomBlockHeadingBold_CMSInfo(){
+        customBlockHeadingBold_CMSInfo.isDisplayed();
+        Highlighter.highlightElement(browser, customBlockHeadingBold_CMSInfo);
+        String  getCustomBlockHeadingBold_CMSInfo = customBlockHeadingBold_CMSInfo.getText();
+        Assertions.assertEquals("This is a custom block of text", getCustomBlockHeadingBold_CMSInfo);
+        System.out.println("Bold Heading is correct and visible!");
+    }
     @FindBy (xpath = "//*[@id=\"cmsinfo_block\"]/div[2]/p[2]")
     WebElement customBlockParagraph_CMSInfo;
-    public void veryCustomBlockText(){
-        Highlighter.highlightElement(browser, customBlockHeading_CMSInfo);
-        customBlockHeading_CMSInfo.isDisplayed();
-        Highlighter.highlightElement(browser, customBlockHeadingStrong_CMSInfo);
-        customBlockHeadingStrong_CMSInfo.isDisplayed();
-        Highlighter.highlightElement(browser, customBlockParagraph_CMSInfo);
+    public void veryCustomBlockParagraph_CMSInfo(){
         customBlockParagraph_CMSInfo.isDisplayed();
-        String  getCustomBlockHeadingText = customBlockHeading_CMSInfo.getText();
-        Assertions.assertEquals("Custom Block", getCustomBlockHeadingText);
+        Highlighter.highlightElement(browser, customBlockParagraph_CMSInfo);
+        String  getCustomBlockParagraphText_CMSInfo = customBlockParagraph_CMSInfo.getText();
+        Assertions.assertEquals("Selenium Framework website was designed solely to help folks get over the fear of Automation. The website was an inspiration from the fact that there is no website that can bridge the gaps between the differences among various programming languages and help non-programmers get a taste of Automation.", getCustomBlockParagraphText_CMSInfo);
+        System.out.println("Paragraph is correct and visible!");
     }
     ///////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////
@@ -369,7 +466,6 @@ public class HomePage{
         String  getFooterNewsLetterHeading = footerCallUsNow_StoreInfo.getText();
         Assertions.assertEquals("Call us now: (347) 466-7432", getFooterNewsLetterHeading);
     }
-
     @FindBy (xpath = "//*[@id=\"block_contact_infos\"]/div/ul/li[3]")
     WebElement footerEmail_StoreInfo;
     public void veryFooterEmail_StoreInfo(){
@@ -377,6 +473,7 @@ public class HomePage{
         String  getFooterNewsLetterHeading = footerEmail_StoreInfo.getText();
         Assertions.assertEquals("Email: support@seleniumframework.com", getFooterNewsLetterHeading);
     }
-
+    ////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
 
 }
